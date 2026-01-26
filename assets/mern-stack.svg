@@ -1,0 +1,50 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="400" height="300" fill="#0f172a"/>
+    <defs>
+        <linearGradient id="atom-grad" x1="0" y1="0" x2="400" y2="300" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#38bdf8"/>
+            <stop offset="1" stop-color="#2563eb"/>
+        </linearGradient>
+        <linearGradient id="db-grad" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+            <stop stop-color="#4ade80"/>
+            <stop offset="1" stop-color="#16a34a"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Code Background Elements -->
+    <text x="50" y="50" fill="#334155" font-family="monospace" font-size="14" opacity="0.5">&lt;div&gt;</text>
+    <text x="300" y="250" fill="#334155" font-family="monospace" font-size="14" opacity="0.5">const app = ()</text>
+    <text x="20" y="280" fill="#334155" font-family="monospace" font-size="14" opacity="0.5">console.log</text>
+
+    <!-- React Atom (Center Left) -->
+    <g transform="translate(140, 150)">
+        <ellipse cx="0" cy="0" rx="60" ry="22" stroke="url(#atom-grad)" stroke-width="3" transform="rotate(0)"/>
+        <ellipse cx="0" cy="0" rx="60" ry="22" stroke="url(#atom-grad)" stroke-width="3" transform="rotate(60)"/>
+        <ellipse cx="0" cy="0" rx="60" ry="22" stroke="url(#atom-grad)" stroke-width="3" transform="rotate(120)"/>
+        <circle cx="0" cy="0" r="8" fill="#38bdf8"/>
+    </g>
+
+    <!-- Database Cylinder (Center Right) -->
+    <g transform="translate(260, 120)">
+         <!-- Top Ellipse -->
+        <ellipse cx="0" cy="0" rx="30" ry="12" fill="#4ade80"/>
+        <!-- Body -->
+        <path d="M-30,0 v50 a30,12 0 0 0 60,0 v-50" fill="url(#db-grad)" opacity="0.8"/>
+        <!-- Bottom Ellipse -->
+        <ellipse cx="0" cy="50" rx="30" ry="12" fill="url(#db-grad)"/>
+        <!-- Ring 1 -->
+        <path d="M-30,15 a30,12 0 0 0 60,0" stroke="#166534" stroke-width="2" fill="none"/>
+        <!-- Ring 2 -->
+        <path d="M-30,35 a30,12 0 0 0 60,0" stroke="#166534" stroke-width="2" fill="none"/>
+    </g>
+
+    <!-- JS/Node Hexagon Hint (Bottom Center) -->
+    <path d="M200 180 L225 195 L225 225 L200 240 L175 225 L175 195 Z" stroke="#eab308" stroke-width="3" fill="rgba(234, 179, 8, 0.2)"/>
+    <text x="192" y="222" fill="#eab308" font-family="Arial" font-weight="bold" font-size="16">JS</text>
+    
+    <!-- Connection Lines -->
+    <line x1="140" y1="150" x2="200" y2="210" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="260" y1="145" x2="200" y2="210" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4"/>
+
+</svg>

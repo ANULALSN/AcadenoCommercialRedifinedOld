@@ -1,0 +1,41 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="400" height="300" fill="#0f172a"/>
+    <defs>
+        <linearGradient id="screen-grad" x1="150" y1="50" x2="250" y2="250" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#1e293b"/>
+            <stop offset="1" stop-color="#0f172a"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Mobile Device -->
+    <rect x="140" y="40" width="120" height="220" rx="15" fill="#334155"/> <!-- Body -->
+    <rect x="145" y="45" width="110" height="210" rx="10" fill="url(#screen-grad)"/> <!-- Screen -->
+    
+    <!-- Notch/Speaker -->
+    <rect x="185" y="50" width="30" height="4" rx="2" fill="#0f172a"/>
+
+    <!-- Code on Screen -->
+    <rect x="155" y="70" width="60" height="6" rx="3" fill="#38bdf8" opacity="0.6"/> <!-- Import -->
+    <rect x="155" y="85" width="40" height="4" rx="2" fill="#94a3b8" opacity="0.4"/>
+    <rect x="155" y="95" width="80" height="4" rx="2" fill="#94a3b8" opacity="0.4"/>
+    
+    <rect x="165" y="110" width="50" height="4" rx="2" fill="#a78bfa" opacity="0.5"/> <!-- Widget -->
+    <rect x="165" y="120" width="70" height="4" rx="2" fill="#94a3b8" opacity="0.4"/>
+
+    <!-- Flutter Logo (Stylized) -->
+    <g transform="translate(195, 160) scale(0.6)">
+        <path d="M15 0 L 35 20 L 0 55 L -20 35 Z" fill="#38bdf8" opacity="0.9"/>
+        <path d="M35 35 L 55 55 L 20 90 L 0 70 Z" fill="#0ea5e9" opacity="0.9"/>
+        <path d="M10 80 L 35 55 L 60 80 L 35 105 Z" fill="#0284c7" opacity="0.9"/>
+    </g>
+
+    <!-- Floating UI Elements -->
+    <circle cx="320" cy="100" r="30" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 2"/>
+    <circle cx="80" cy="200" r="20" fill="none" stroke="#a78bfa" stroke-width="1" stroke-dasharray="4 2"/>
+    
+    <!-- Floating Symbols -->
+    <text x="280" y="80" fill="#38bdf8" font-family="Arial" font-size="20" opacity="0.6">{ }</text>
+    <text x="60" y="240" fill="#a78bfa" font-family="Arial" font-size="20" opacity="0.6">&lt;/&gt;</text>
+
+</svg>

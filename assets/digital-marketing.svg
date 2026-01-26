@@ -1,0 +1,50 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="400" height="300" fill="#0f172a"/>
+    <defs>
+        <linearGradient id="chart-grad" x1="0" y1="100" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#db2777"/>
+            <stop offset="1" stop-color="#f472b6"/>
+        </linearGradient>
+        <linearGradient id="mega-grad" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+            <stop stop-color="#a78bfa"/>
+            <stop offset="1" stop-color="#7c3aed"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Background Elements (Graph Lines) -->
+    <path d="M40 250 L 100 200 L 160 220 L 220 150 L 280 180 L 360 80" stroke="#334155" stroke-width="2" stroke-dasharray="4 4"/>
+    <circle cx="100" cy="200" r="4" fill="#334155"/>
+    <circle cx="220" cy="150" r="4" fill="#334155"/>
+    <circle cx="360" cy="80" r="4" fill="#334155"/>
+
+    <!-- Megaphone (Central 3D Element) -->
+    <g transform="translate(140, 100) rotate(-15)">
+        <!-- Body -->
+        <path d="M0 20 L 60 0 L 60 70 L 0 50 Z" fill="url(#mega-grad)"/>
+        <ellipse cx="60" cy="35" rx="10" ry="35" fill="#5b21b6"/>
+        <ellipse cx="0" cy="35" rx="5" ry="15" fill="#a78bfa"/>
+        <!-- Handle -->
+        <path d="M20 55 L 20 85 L 40 85 L 40 60 Z" fill="#4c1d95"/>
+        <!-- Sound Waves -->
+        <path d="M80 10 Q 90 35 80 60" stroke="#e879f9" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+        <path d="M95 0 Q 115 35 95 70" stroke="#e879f9" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+        <path d="M110 -10 Q 140 35 110 80" stroke="#e879f9" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+        
+        <!-- Icons popping out -->
+        <circle cx="110" cy="-20" r="15" fill="#0ea5e9" opacity="0.9"/> <!-- Like/Social -->
+        <path d="M105 -25 L 110 -15 L 115 -25" stroke="white" stroke-width="2" fill="none"/>
+        
+        <circle cx="130" cy="90" r="12" fill="#22c55e" opacity="0.9"/> <!-- Money/ROI -->
+        <text x="126" y="94" fill="white" font-family="Arial" font-size="12">$</text>
+    </g>
+
+    <!-- Bar Chart (Bottom Right) -->
+    <rect x="260" y="200" width="20" height="40" rx="2" fill="#db2777" opacity="0.4"/>
+    <rect x="290" y="170" width="20" height="70" rx="2" fill="#db2777" opacity="0.6"/>
+    <rect x="320" y="140" width="20" height="100" rx="2" fill="url(#chart-grad)"/>
+
+    <!-- Cursor Clicking -->
+    <path d="M300 220 L 310 240 L 315 235 L 325 245 L 330 240 L 320 230 L 330 225 Z" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+
+</svg>
