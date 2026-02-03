@@ -206,18 +206,48 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
+            const formData = new FormData(contactForm);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // --- Basic Validation ---
+            if (!data.name || data.name.trim() === "") {
+                formStatus.style.display = 'block';
+                formStatus.textContent = 'Name is required.';
+                formStatus.style.color = '#ef4444'; // Red
+                return;
+            }
+
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(data.phone)) {
+                formStatus.style.display = 'block';
+                formStatus.textContent = 'A valid 10-digit phone number is required.';
+                formStatus.style.color = '#ef4444'; // Red
+                return;
+            }
+
+            if (!data.course || data.course.trim() === "") {
+                formStatus.style.display = 'block';
+                formStatus.textContent = 'Please specify the course you are interested in.';
+                formStatus.style.color = '#ef4444'; // Red
+                return;
+            }
+
+            if (!data.message || data.message.trim() === "") {
+                formStatus.style.display = 'block';
+                formStatus.textContent = 'Message field cannot be empty.';
+                formStatus.style.color = '#ef4444'; // Red
+                return;
+            }
+
             // Disable button and show loading state
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
             formStatus.style.display = 'block';
             formStatus.textContent = 'Submitting your request...';
             formStatus.style.color = 'var(--text-muted)';
-
-            const formData = new FormData(contactForm);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
 
             // SheetDB URL (Replace with your actual URL from sheetdb.io)
             const SCRIPT_URL = 'https://sheetdb.io/api/v1/jdd16ffs51vng';
