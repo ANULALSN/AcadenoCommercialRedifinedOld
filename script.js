@@ -212,11 +212,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 data[key] = value;
             });
 
+            // Clear previous error styles
+            contactForm.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error-field'));
+
             // --- Basic Validation ---
             if (!data.name || data.name.trim() === "") {
                 formStatus.style.display = 'block';
                 formStatus.textContent = 'Name is required.';
                 formStatus.style.color = '#ef4444'; // Red
+                contactForm.querySelector('[name="name"]').classList.add('error-field');
+                contactForm.querySelector('[name="name"]').focus();
                 return;
             }
 
@@ -225,6 +230,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 formStatus.style.display = 'block';
                 formStatus.textContent = 'A valid 10-digit phone number is required.';
                 formStatus.style.color = '#ef4444'; // Red
+                contactForm.querySelector('[name="phone"]').classList.add('error-field');
+                contactForm.querySelector('[name="phone"]').focus();
                 return;
             }
 
@@ -232,6 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 formStatus.style.display = 'block';
                 formStatus.textContent = 'Please specify the course you are interested in.';
                 formStatus.style.color = '#ef4444'; // Red
+                contactForm.querySelector('[name="course"]').classList.add('error-field');
+                contactForm.querySelector('[name="course"]').focus();
                 return;
             }
 
@@ -239,6 +248,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 formStatus.style.display = 'block';
                 formStatus.textContent = 'Message field cannot be empty.';
                 formStatus.style.color = '#ef4444'; // Red
+                contactForm.querySelector('[name="message"]').classList.add('error-field');
+                contactForm.querySelector('[name="message"]').focus();
                 return;
             }
 
