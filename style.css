@@ -784,6 +784,15 @@ nav {
     box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
 }
 
+.success-field {
+    border-color: #10b981 !important;
+    background-color: #f0fdf4 !important;
+}
+
+.success-field:focus {
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2) !important;
+}
+
 /* Footer */
 footer {
     padding: 2rem 0;

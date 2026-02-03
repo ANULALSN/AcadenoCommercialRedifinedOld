@@ -203,55 +203,66 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('submit-btn');
 
     if (contactForm) {
+        // Function to validate a single field
+        const validateField = (field) => {
+            const name = field.getAttribute('name');
+            const value = field.value.trim();
+            let isValid = false;
+
+            if (name === 'phone') {
+                isValid = /^[0-9]{10}$/.test(value);
+            } else {
+                isValid = value !== "";
+            }
+
+            if (isValid) {
+                field.classList.remove('error-field');
+                field.classList.add('success-field');
+            } else {
+                field.classList.remove('success-field');
+                field.classList.add('error-field');
+            }
+            return isValid;
+        };
+
+        // Add real-time input listeners
+        contactForm.querySelectorAll('input, textarea').forEach(field => {
+            field.addEventListener('input', () => {
+                // Only start showing validation colors after a class has been applied once (after first submit attempt)
+                if (field.classList.contains('error-field') || field.classList.contains('success-field')) {
+                    validateField(field);
+                }
+            });
+        });
+
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
+
+            let isFormValid = true;
+            let firstInvalidField = null;
+
+            // Validate all fields
+            contactForm.querySelectorAll('input, textarea').forEach(field => {
+                const isValid = validateField(field);
+                if (!isValid) {
+                    isFormValid = false;
+                    if (!firstInvalidField) firstInvalidField = field;
+                }
+            });
+
+            if (!isFormValid) {
+                formStatus.style.display = 'block';
+                formStatus.textContent = 'Please fix the errors in the fields highlighted in red.';
+                formStatus.style.color = '#ef4444'; // Red
+                if (firstInvalidField) firstInvalidField.focus();
+                return;
+            }
 
             const formData = new FormData(contactForm);
             const data = {};
             formData.forEach((value, key) => {
                 data[key] = value;
             });
-
-            // Clear previous error styles
-            contactForm.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error-field'));
-
-            // --- Basic Validation ---
-            if (!data.name || data.name.trim() === "") {
-                formStatus.style.display = 'block';
-                formStatus.textContent = 'Name is required.';
-                formStatus.style.color = '#ef4444'; // Red
-                contactForm.querySelector('[name="name"]').classList.add('error-field');
-                contactForm.querySelector('[name="name"]').focus();
-                return;
-            }
-
-            const phoneRegex = /^[0-9]{10}$/;
-            if (!phoneRegex.test(data.phone)) {
-                formStatus.style.display = 'block';
-                formStatus.textContent = 'A valid 10-digit phone number is required.';
-                formStatus.style.color = '#ef4444'; // Red
-                contactForm.querySelector('[name="phone"]').classList.add('error-field');
-                contactForm.querySelector('[name="phone"]').focus();
-                return;
-            }
-
-            if (!data.course || data.course.trim() === "") {
-                formStatus.style.display = 'block';
-                formStatus.textContent = 'Please specify the course you are interested in.';
-                formStatus.style.color = '#ef4444'; // Red
-                contactForm.querySelector('[name="course"]').classList.add('error-field');
-                contactForm.querySelector('[name="course"]').focus();
-                return;
-            }
-
-            if (!data.message || data.message.trim() === "") {
-                formStatus.style.display = 'block';
-                formStatus.textContent = 'Message field cannot be empty.';
-                formStatus.style.color = '#ef4444'; // Red
-                contactForm.querySelector('[name="message"]').classList.add('error-field');
-                contactForm.querySelector('[name="message"]').focus();
-                return;
-            }
 
             // Disable button and show loading state
             submitBtn.disabled = true;
@@ -283,6 +294,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     formStatus.textContent = 'Success! We will contact you soon.';
                     formStatus.style.color = '#10b981'; // Green
                     contactForm.reset();
+                    // Clear validation styles after reset
+                    contactForm.querySelectorAll('input, textarea').forEach(field => {
+                        field.classList.remove('error-field', 'success-field');
+                    });
                     submitBtn.textContent = 'Schedule Free Consultation';
                     submitBtn.disabled = false;
 
