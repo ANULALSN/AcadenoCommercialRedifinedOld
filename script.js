@@ -196,4 +196,66 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(el => {
         observer.observe(el);
     });
+
+    // --- Google Sheets Form Submission ---
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formStatus.style.display = 'block';
+            formStatus.textContent = 'Submitting your request...';
+            formStatus.style.color = 'var(--text-muted)';
+
+            const formData = new FormData(contactForm);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // SheetDB URL (Replace with your actual URL from sheetdb.io)
+            const SCRIPT_URL = 'https://sheetdb.io/api/v1/jdd16ffs51vng';
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    data: [
+                        {
+                            ...data,
+                            timestamp: new Date().toLocaleString()
+                        }
+                    ]
+                }),
+            })
+                .then(response => response.json())
+                .then(html => {
+                    formStatus.textContent = 'Success! We will contact you soon.';
+                    formStatus.style.color = '#10b981'; // Green
+                    contactForm.reset();
+                    submitBtn.textContent = 'Schedule Free Consultation';
+                    submitBtn.disabled = false;
+
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    formStatus.textContent = 'Something went wrong. Please try again.';
+                    formStatus.style.color = '#ef4444'; // Red
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Schedule Free Consultation';
+                });
+        });
+    }
 });

@@ -460,25 +460,27 @@
         </div>
 
         <div class="contact-form">
-          <form>
+          <form id="contact-form">
             <div class="form-group">
               <label>Name</label>
-              <input type="text" placeholder="Your Name">
+              <input type="text" name="name" placeholder="Your Name" required>
             </div>
             <div class="form-group">
               <label>Phone Number</label>
-              <input type="tel" placeholder="Your Mobile Number">
+              <input type="tel" name="phone" placeholder="Your Mobile Number" required>
             </div>
             <div class="form-group">
               <label>Interested Course</label>
-              <input type="text" placeholder="e.g. Python, Digital Marketing">
+              <input type="text" name="course" placeholder="e.g. Python, Digital Marketing" required>
             </div>
             <div class="form-group">
               <label>Message</label>
-              <textarea rows="4" placeholder="Any specific questions?"></textarea>
+              <textarea name="message" rows="4" placeholder="Any specific questions?"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Schedule Free Consultation</button>
+            <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">Schedule Free
+              Consultation</button>
           </form>
+          <div id="form-status" style="margin-top: 1rem; text-align: center; display: none;"></div>
         </div>
       </div>
 
