@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Rounded square background -->
+  <rect width="64" height="64" rx="14" ry="14" fill="url(#grad1)"/>
+  <!-- Bold "A" lettermark -->
+  <text
+    x="32"
+    y="47"
+    font-family="'Outfit', 'Arial Black', sans-serif"
+    font-size="42"
+    font-weight="800"
+    text-anchor="middle"
+    fill="white"
+    letter-spacing="-1"
+  >A</text>
+</svg>
