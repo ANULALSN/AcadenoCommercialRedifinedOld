@@ -207,15 +207,12 @@ nav {
 }
 
 .logo-img {
-    height: 100px;
-    /* Max prominence */
+    height: 52px;
     width: auto;
     object-fit: contain;
     mix-blend-mode: multiply;
     /* Removes white background */
     image-rendering: -webkit-optimize-contrast;
-    transform: scale(1.5);
-    transform-origin: left center;
 }
 
 .nav-links {
