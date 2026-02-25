@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formStatus.style.color = 'var(--text-muted)';
 
             // SheetDB URL (Replace with your actual URL from sheetdb.io)
-            const SCRIPT_URL = 'https://sheetdb.io/api/v1/jdd16ffs51vng';
+            const SCRIPT_URL = 'https://sheetdb.io/api/v1/x7lah61xqtmom';
 
             fetch(SCRIPT_URL, {
                 method: 'POST',
