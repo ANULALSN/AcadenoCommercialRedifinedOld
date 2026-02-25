@@ -118,14 +118,28 @@ document.addEventListener('DOMContentLoaded', () => {
         animate();
     }
 
-    // --- Typing Effect ---
+    // --- Typewriter Effect: completes "AI-Powered ___" ---
     const typingText = document.querySelector('.typing-text');
     if (typingText) {
-        const words = ["Your Career", "Future Leaders", "Tech Experts", "Innovators"];
+        // Second line — reads like a headline pair with "AI-Powered" above
+        // ✦ "AI-Powered / Digital Solutions"
+        // ✦ "AI-Powered / Business Automation"
+        // ✦ "AI-Powered / Web & Mobile Apps"
+        // ✦ "AI-Powered / Smart Innovation"
+        // ✦ "AI-Powered / Growth & Scale"
+        // ✦ "AI-Powered / Future Delivered"
+        const words = [
+            "Digital Transformation",
+            "Business Intelligence",
+            "Software Development",
+            "Marketing Solutions",
+            "Product Innovation",
+            "Enterprise Solutions"
+        ];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
-        let typeSpeed = 100;
+        let typeSpeed = 80;
 
         function type() {
             const currentWord = words[wordIndex];
@@ -133,27 +147,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isDeleting) {
                 typingText.textContent = currentWord.substring(0, charIndex - 1);
                 charIndex--;
-                typeSpeed = 50; // Faster deleting
+                typeSpeed = 40;
             } else {
                 typingText.textContent = currentWord.substring(0, charIndex + 1);
                 charIndex++;
-                typeSpeed = 150; // Normal typing
+                typeSpeed = 80;
             }
 
             if (!isDeleting && charIndex === currentWord.length) {
                 isDeleting = true;
-                typeSpeed = 2000; // Pause at end
+                typeSpeed = 2000; // Pause to let the reader absorb the headline
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 wordIndex = (wordIndex + 1) % words.length;
-                typeSpeed = 500; // Pause before next word
+                typeSpeed = 400;
             }
 
             setTimeout(type, typeSpeed);
         }
 
-        // Start typing
-        setTimeout(type, 1000);
+        setTimeout(type, 800);
     }
 
     // --- 3D Tilt Effect for Cards ---

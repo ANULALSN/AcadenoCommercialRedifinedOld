@@ -271,14 +271,25 @@ nav {
     z-index: 2;
 }
 
-/* Typing Effect Cursor */
+/* --- Typing Text Style --- */
+.typing-text {
+    display: inline;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Blinking Cursor */
 .cursor {
     display: inline-block;
-    width: 3px;
-    background-color: var(--accent-glow);
-    animation: blink 1s infinite;
-    margin-left: 5px;
+    width: 4px;
+    height: 0.85em;
+    background: var(--accent-glow);
+    margin-left: 3px;
     vertical-align: middle;
+    border-radius: 2px;
+    animation: blink 0.85s step-start infinite;
 }
 
 @keyframes blink {
@@ -292,6 +303,7 @@ nav {
         opacity: 0;
     }
 }
+
 
 .hero h1 {
     font-size: 4rem;
