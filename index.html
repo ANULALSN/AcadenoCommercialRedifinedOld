@@ -3,7 +3,80 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Acadeno Technologies | Editorial Precision in Tech</title>
+    <title>Acadeno Technologies — Enterprise AI Integration & Software Engineering</title>
+    <meta name="description" content="Acadeno embeds AI directly into existing enterprise systems. Based in Govt Cyberpark, Calicut, we provide scalable ML, NLP, and full-stack engineering globally.">
+    <meta name="keywords" content="Enterprise AI Integration, Software Engineering Kerala, Custom Machine Learning Solutions, Govt Cyberpark Tech Companies">
+    
+    <!-- OpenGraph / Social Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.acadeno.com/">
+    <meta property="og:title" content="Acadeno Technologies — Enterprise AI Integration & Software Engineering">
+    <meta property="og:description" content="Acadeno embeds AI directly into existing enterprise systems. Based in Govt Cyberpark, Calicut, we provide scalable ML, NLP, and full-stack engineering globally.">
+    <meta property="og:image" content="https://www.acadeno.com/assets/Gemini_Generated_Image_cd5jnecd5jnecd5j.jpeg">
+
+    <!-- Canonical Tag & Favicon -->
+    <link rel="canonical" href="https://www.acadeno.com/">
+    <link rel="icon" type="image/png" href="assets/logo_Title.png">
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Acadeno Technologies",
+          "url": "https://www.acadeno.com",
+          "logo": "https://www.acadeno.com/assets/Page 1.svg",
+          "description": "Enterprise software development and AI engineering company.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "UB-19, Govt Cyberpark",
+            "addressLocality": "Calicut",
+            "addressRegion": "Kerala",
+            "postalCode": "673016",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "Acadeno Engineering Services",
+          "image": "https://www.acadeno.com/assets/Gemini_Generated_Image_cd5jnecd5jnecd5j.jpeg",
+          "priceRange": "$$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "UB-19, Govt Cyberpark",
+            "addressLocality": "Calicut",
+            "addressRegion": "Kerala",
+            "postalCode": "673016",
+            "addressCountry": "IN"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Core Engineering Capabilities",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Integration into Existing Software" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI Solutions & Models" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Agents & Intelligent Automation" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "RAG Knowledge Systems" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Application Development" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile Application Development" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "API & System Integration" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data Analytics & Business Intelligence" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud & DevOps" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cybersecurity" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IoT Solutions" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Embedded Systems" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Robotics & Automation" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Smart City Solutions" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Marketing" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Consulting & Training" }}
+            ]
+          }
+        }
+      ]
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..800&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -243,6 +316,39 @@
         opacity: 0;
         animation: borderGlow 1.5s ease-out forwards;
       }
+      
+      /* --- CAPABILITIES PROGRESSIVE DISCLOSURE --- */
+      .capabilities-wrapper {
+        position: relative;
+        overflow: hidden;
+        max-height: 850px;
+        transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        padding-bottom: 24px;
+        will-change: max-height;
+      }
+      @media (min-width: 640px) {
+        .capabilities-wrapper { max-height: 850px; }
+      }
+      @media (min-width: 1024px) {
+        .capabilities-wrapper { max-height: 520px; }
+      }
+      .capabilities-wrapper.is-expanded {
+        max-height: 4500px !important;
+      }
+      .capabilities-fade {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 120px;
+        background: linear-gradient(to bottom, transparent, #f8f9fd);
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+        z-index: 10;
+      }
+      .capabilities-wrapper.is-expanded .capabilities-fade {
+        opacity: 0;
+      }
     </style>
     <style>
       body {
@@ -297,8 +403,8 @@
         to { transform: translateY(0); opacity: 1; }
       }
       @keyframes slideDownLogoMobile {
-        from { transform: translateY(-100%) scale(0.85); opacity: 0; }
-        to { transform: translateY(0) scale(0.85); opacity: 1; }
+        from { transform: translateY(-100%) scale(0.8); opacity: 0; }
+        to { transform: translateY(0) scale(0.8); opacity: 1; }
       }
       .logo-load {
         animation: slideDownLogo 1s cubic-bezier(0.22, 1, 0.36, 1) forwards, tabPulse 2s ease-in-out infinite 1s;
@@ -310,13 +416,40 @@
             animation: slideDownLogoMobile 1s cubic-bezier(0.22, 1, 0.36, 1) forwards, tabPulse 2s ease-in-out infinite 1s !important;
         }
         .logo-tab {
-            transform: scale(0.85) !important;
+            transform: scale(0.8) !important;
             transform-origin: top left !important;
             transition: transform 0.1s ease-out !important;
+            padding-bottom: 10.5px !important;
+            margin-top: 0 !important;
+            top: 0 !important;
         }
         .logo-tab:active {
-            transform: scale(0.8) !important; /* 0.85 * ~0.95 for tactile feedback */
+            transform: scale(0.75) !important; /* Scale down from 0.8 */
         }
+        
+        /* Trust Bar Overrides */
+        .trust-bar {
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 16px !important;
+            padding-top: 16px !important;
+            padding-bottom: 16px !important;
+        }
+        .trust-label {
+            font-size: 11px !important;
+            margin-right: 0 !important;
+            text-align: center !important;
+        }
+        .trust-regions {
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 12px !important;
+        }
+        .trust-regions span {
+            line-height: 2 !important;
+        }
+
         .made-intelligent-text, .reveal-hidden {
             transform: translate3d(0, 0, 0); /* Force GPU acceleration */
         }
@@ -378,7 +511,7 @@
 </div>
 <!-- Mobile Hamburger -->
 <div class="md:hidden flex items-center justify-end h-full">
-   <button id="mobile-menu-btn" class="w-12 h-12 flex flex-col justify-center items-center gap-1.5 focus:outline-none bg-surface-container-low rounded-lg active:scale-95 transition-transform" aria-label="Menu">
+   <button id="mobile-menu-btn" class="w-12 h-12 flex flex-col justify-center items-center gap-1.5 focus:outline-none bg-surface-container-low rounded-lg active:scale-95 transition-transform" aria-label="Toggle navigation menu">
         <span class="hamburger-line block w-6 h-[2px] bg-primary transition-all duration-300 origin-center"></span>
         <span class="hamburger-line block w-6 h-[2px] bg-primary transition-all duration-300 origin-center"></span>
         <span class="hamburger-line block w-6 h-[2px] bg-primary transition-all duration-300 origin-center"></span>
@@ -392,7 +525,7 @@
 <div id="mobile-drawer" class="fixed top-0 right-0 w-[80%] max-w-sm h-[100dvh] bg-white shadow-2xl z-[100] transform translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-bl-[24px] flex flex-col pointer-events-auto">
     <div class="p-6 flex justify-between items-center border-b border-slate-100">
         <span class="font-headline font-extrabold text-primary text-lg">Menu</span>
-        <button id="close-menu-btn" class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-full active:scale-95 transition-transform">
+        <button id="close-menu-btn" aria-label="Close navigation menu" class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-full active:scale-95 transition-transform">
             <span class="material-symbols-outlined text-on-surface">close</span>
         </button>
     </div>
@@ -425,8 +558,8 @@
                     We embed AI directly into the systems your business already runs — no replacements, no disruption, no starting over. Just measurably smarter operations from day one.
                 </p>
 <div class="reveal-hidden reveal-scale flex flex-col sm:flex-row gap-4 mb-8" style="transition-delay: 0.2s;">
-<button class="px-8 py-4 bg-primary text-white font-bold rounded-xl text-sm transition-all hover:opacity-90 active:scale-95">Discuss Your Project →</button>
-<button class="px-8 py-4 bg-surface-container-lowest ghost-border text-on-surface font-bold rounded-xl text-sm transition-all hover:bg-surface-container">View Our Capabilities</button>
+<a href="#contact" aria-label="Navigate to contact section to discuss your project" class="px-8 py-4 bg-primary text-white font-bold rounded-xl text-sm transition-all hover:opacity-90 active:scale-95 text-center">Discuss Your Project →</a>
+<a href="#capabilities" aria-label="View our full list of engineering capabilities" class="px-8 py-4 bg-surface-container-lowest ghost-border text-on-surface font-bold rounded-xl text-sm transition-all hover:bg-surface-container text-center">View Our Capabilities</a>
 </div>
 <div class="flex gap-4 flex-wrap text-sm text-on-surface-variant">
     <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span> <strong>16+ Service Areas</strong></div>
@@ -437,16 +570,16 @@
 <div class="lg:col-span-4 relative block mt-8 lg:mt-0">
 <!-- Hero Image -->
 <div class="w-full aspect-square rounded-2xl relative overflow-hidden shadow-2xl ghost-border bg-surface-container-lowest max-w-sm mx-auto lg:max-w-none">
-<img alt="Acadeno Intelligence" class="w-full h-full object-cover" src="assets/Gemini_Generated_Image_cd5jnecd5jnecd5j.jpeg"/>
+<img alt="Abstract Neural Network Representation of Acadeno AI Integration" class="w-full h-full object-cover" src="assets/Gemini_Generated_Image_cd5jnecd5jnecd5j.jpeg"/>
 </div>
 </div>
 </div>
 </header>
 <!-- Section 3: Trust Bar -->
 <div class="bg-surface-container-low py-4 overflow-hidden ghost-border border-x-0 relative">
-<div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-<span class="text-xs font-bold tracking-widest text-on-surface-variant uppercase mr-6 shrink-0">Trusted by clients across:</span>
-<div class="flex-1 flex justify-between items-center opacity-60 grayscale select-none">
+<div class="trust-bar max-w-7xl mx-auto px-6 flex justify-between items-center">
+<span class="trust-label text-xs font-bold tracking-widest text-on-surface-variant uppercase mr-6 shrink-0">Trusted by clients across:</span>
+<div class="trust-regions flex-1 flex justify-between items-center opacity-60 grayscale select-none">
 <span class="text-[10px] font-bold tracking-[0.3em] uppercase">USA</span>
 <span class="text-[10px] font-bold tracking-[0.3em] uppercase">United Kingdom</span>
 <span class="text-[10px] font-bold tracking-[0.3em] uppercase">Europe</span>
@@ -518,6 +651,7 @@
 <h2 class="reveal-hidden reveal-slide-left font-headline text-3xl font-bold text-on-surface">What we engineer.</h2>
 <p class="reveal-hidden reveal-fade-up font-light text-on-surface-variant mt-2" style="transition-delay: 0.1s;">Sixteen service areas. One consistent standard of delivery.</p>
 </div>
+<div class="capabilities-wrapper">
 <div class="stagger-group grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 <!-- 16 Capability Cards -->
 <div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
@@ -632,6 +766,15 @@
 <p class="text-xs text-on-surface-variant leading-relaxed">Strategic AI advisory and structured training programmes — helping organisations adopt AI with confidence and clarity.</p>
 </div>
 </div>
+</div>
+<div class="capabilities-fade"></div>
+</div>
+<!-- See More Button -->
+<div class="flex justify-center mt-6">
+    <button id="capabilities-toggle-btn" aria-label="Toggle full list of 16 engineering capabilities" class="px-8 py-3 bg-transparent border border-outline-variant text-on-surface hover:text-primary hover:border-primary font-bold rounded-xl text-sm transition-all active:scale-95 flex items-center gap-2">
+        <span>Explore More Engineering Services</span>
+        <span class="material-symbols-outlined text-lg" data-icon="south">south</span>
+    </button>
 </div>
 </section>
 <!-- Section 7: Tech Stack -->
@@ -893,18 +1036,11 @@
 <p class="text-base font-bold text-white leading-relaxed">UB-19, Govt Cyberpark,<br/>Calicut, Kerala 673016, India</p>
 </div>
 </div>
-<div class="flex gap-6">
-<span class="material-symbols-outlined text-[#00BFEA] text-2xl" data-icon="call">call</span>
-<div>
-<p class="text-[10px] uppercase tracking-widest font-bold text-white mb-1">Phone</p>
-<p class="text-base font-bold text-white">+91 495 460 05 04</p>
-</div>
-</div>
 <a href="https://wa.me/919447933266" target="_blank" class="flex gap-6 hover:translate-x-1 transition-transform group">
 <span class="material-symbols-outlined text-[#25D366] text-2xl group-hover:scale-110 transition-transform" data-icon="chat">chat</span>
 <div>
 <p class="text-[10px] uppercase tracking-widest font-bold text-white mb-1">WhatsApp</p>
-<p class="text-base font-bold text-white">+91 94479 33266</p>
+<p class="text-base font-bold text-white">+91 94479 33266<br/>Active Support</p>
 </div>
 </a>
 </div>
@@ -951,9 +1087,8 @@ Download Company Profile
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
 <!-- Column 1: Brand -->
 <div class="lg:col-span-1">
-<div class="flex items-center gap-3 mb-6">
-<img src="assets/Page 1.svg" alt="Acadeno Technologies" class="h-7 w-auto brightness-0 invert" draggable="false">
-<span class="text-xl font-extrabold tracking-tight font-headline">Acadeno</span>
+<div class="mb-6">
+<span class="text-3xl font-extrabold tracking-tight font-headline text-white">Acadeno</span>
 </div>
 <p class="text-slate-400 text-sm font-light leading-relaxed mb-6">
 Integrating minds, technologies, and possibilities.
@@ -1019,9 +1154,9 @@ Calicut, Kerala 673016, India
 </a>
 </li>
 <li class="flex gap-4 pt-2">
-<a href="#" class="text-slate-500 hover:text-white transition-colors"><span class="material-symbols-outlined text-xl" data-icon="share">share</span></a>
-<a href="#" class="text-slate-500 hover:text-white transition-colors"><span class="material-symbols-outlined text-xl" data-icon="hub">hub</span></a>
-<a href="#" class="text-slate-500 hover:text-white transition-colors"><span class="material-symbols-outlined text-xl" data-icon="public">public</span></a>
+<a aria-label="Share Acadeno Technologies profile" href="#" class="text-slate-500 hover:text-white transition-colors"><span class="material-symbols-outlined text-xl" data-icon="share">share</span></a>
+<a aria-label="View Acadeno Technologies Hub or GitHub" href="#" class="text-slate-500 hover:text-white transition-colors"><span class="material-symbols-outlined text-xl" data-icon="hub">hub</span></a>
+<a aria-label="View Acadeno Technologies global network" href="#" class="text-slate-500 hover:text-white transition-colors"><span class="material-symbols-outlined text-xl" data-icon="public">public</span></a>
 </li>
 </ul>
 </div>
@@ -1037,12 +1172,9 @@ Technically superior. Structurally sound.
 
 <!-- Bottom Bar -->
 <div class="border-t border-white/5 pt-8">
-<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="text-slate-500 text-[11px] font-medium tracking-wide">
+<div class="max-w-7xl mx-auto px-6 flex justify-center items-center">
+<p class="text-slate-500 text-[11px] font-medium tracking-wide text-center">
 © 2025 ACADENO TECHNOLOGIES PRIVATE LIMITED. ALL RIGHTS RESERVED.
-</p>
-<p class="text-slate-500 text-[11px] font-bold tracking-[0.2em] uppercase">
-Made in SEZ, Kerala
 </p>
 </div>
 </div>
@@ -1129,6 +1261,38 @@ Made in SEZ, Kerala
         backdrop.addEventListener('click', toggleMenu);
         drawerLinks.forEach(link => link.addEventListener('click', toggleMenu));
     }
+
+    /* Capabilities Progressive Disclosure Logic */
+    const capWrapper = document.querySelector('.capabilities-wrapper');
+    const capBtn = document.getElementById('capabilities-toggle-btn');
+    if (capWrapper && capBtn) {
+        capBtn.addEventListener('click', () => {
+            const isExpanded = capWrapper.classList.toggle('is-expanded');
+            capBtn.innerHTML = isExpanded 
+                ? '<span>Show Less</span><span class="material-symbols-outlined text-lg" data-icon="north">north</span>'
+                : '<span>Explore More Engineering Services</span><span class="material-symbols-outlined text-lg" data-icon="south">south</span>';
+        });
+    }
+
+    /* URL Hash Cleanup & Smooth Navigation */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Remove hash from URL without reloading
+                if (history.pushState) {
+                    history.pushState(null, null, window.location.pathname + window.location.search);
+                }
+            }
+        });
+    });
 
     /* --- SCROLL REVEAL OBSERVER --- */
     document.addEventListener("DOMContentLoaded", () => {
