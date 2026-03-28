@@ -1,490 +1,1178 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html class="light" lang="en" style="scroll-behavior: smooth;">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acadeno | AI-Powered Digital Solutions</title>
-  <meta name="description"
-    content="Acadeno - AI-Powered Digital Solutions. Intelligent technology for modern businesses. We design and deliver AI-powered web, mobile, and digital marketing solutions.">
-  <link rel="stylesheet" href="style.css">
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/logo_Title.png">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Acadeno Technologies | Editorial Precision in Tech</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#444651",
+              "primary-fixed": "#dae2ff",
+              "on-tertiary": "#ffffff",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#f0dbff",
+              "surface-variant": "#e1e2e6",
+              "inverse-primary": "#b2c5ff",
+              "secondary": "#00677f",
+              "on-tertiary-fixed": "#2c0050",
+              "surface": "#f8f9fd",
+              "on-surface": "#191c1f",
+              "inverse-surface": "#2e3134",
+              "primary-container": "#1b3f8b",
+              "secondary-fixed": "#b7eaff",
+              "primary": "#00286d",
+              "on-background": "#191c1f",
+              "error": "#ba1a1a",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#cf9aff",
+              "on-primary-container": "#91aeff",
+              "on-primary": "#ffffff",
+              "tertiary": "#460079",
+              "background": "#f8f9fd",
+              "primary-fixed-dim": "#b2c5ff",
+              "on-secondary-fixed-variant": "#004e61",
+              "surface-dim": "#d9dade",
+              "surface-bright": "#f8f9fd",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#deb7ff",
+              "surface-container-high": "#e7e8ec",
+              "tertiary-container": "#640aa7",
+              "on-secondary": "#ffffff",
+              "inverse-on-surface": "#eff1f5",
+              "on-secondary-container": "#00586e",
+              "surface-tint": "#3b5ba8",
+              "on-primary-fixed": "#001848",
+              "surface-container-highest": "#e1e2e6",
+              "outline-variant": "#c4c6d3",
+              "on-tertiary-fixed-variant": "#6712aa",
+              "surface-container-low": "#f2f3f7",
+              "secondary-fixed-dim": "#4ed5ff",
+              "on-secondary-fixed": "#001f28",
+              "outline": "#747782",
+              "on-primary-fixed-variant": "#20438f",
+              "secondary-container": "#3bd3ff",
+              "surface-container": "#edeef2",
+              "on-error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["'Plus Jakarta Sans'", "sans-serif"],
+              "body": ["'Plus Jakarta Sans'", "sans-serif"],
+              "label": ["'Plus Jakarta Sans'", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1rem", "2xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+    <style>
+      /* Enforce Global Typography Rules */
+      h1, h2, .impact-heading {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.04em !important;
+        line-height: 1.1 !important;
+      }
+      h3, .sub-heading, .label-sm {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-weight: 700 !important;
+        letter-spacing: -0.02em !important;
+      }
+      body, p, li {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-weight: 450 !important;
+        line-height: 1.7 !important;
+        letter-spacing: -0.01em !important;
+        color: #475569;
+      }
+      button, nav a, .nav-link {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-weight: 500 !important;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+      }
+      /* Hanging Tab Styles */
+      .logo-tab {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(12px) !important;
+        border-left: 1px solid #E2E8F0 !important;
+        border-right: 1px solid #E2E8F0 !important;
+        border-bottom: 1px solid #E2E8F0 !important;
+        border-radius: 0 0 12px 12px !important;
+        padding: 18px 24px 14px 24px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+        position: relative;
+        z-index: 60;
+        margin-top: -1px;
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        will-change: transform;
+        overflow: hidden;
+        cursor: pointer;
+        /* Replaced animation with load state animation applied via JS/CSS */
+      }
+      .nav-tab-wrapper {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        height: 100%;
+      }
+      .nav-tab {
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 0 0 8px 8px;
+        padding: 12px 16px 8px 16px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        z-index: 55;
+        margin-top: -1px;
+        display: flex;
+        align-items: center;
+        height: auto;
+        overflow: hidden;
+        will-change: transform, background-color;
+      }
+      /* Liquid Hover Effect */
+      .nav-tab::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(59, 130, 246, 0.05), transparent);
+        transform: translateY(100%);
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: -1;
+      }
+      .nav-tab:hover::before, .nav-tab-active::before {
+        transform: translateY(0%);
+      }
+      /* Pulse Animation */
+      @keyframes tabPulse {
+        0%, 100% { background-color: rgba(255, 255, 255, 1); }
+        50% { background-color: rgba(59, 130, 246, 0.02); }
+      }
+      .nav-tab-active, .nav-tab:hover {
+        background: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(8px) !important;
+        border-left: 1px solid #E2E8F0 !important;
+        border-right: 1px solid #E2E8F0 !important;
+        border-bottom: 1px solid #E2E8F0 !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03) !important;
+      }
+      .nav-tab-active {
+        animation: tabPulse 2s ease-in-out infinite;
+      }
+      .nav-tab a {
+        color: #475569 !important;
+        font-weight: 500 !important;
+        transition: all 0.3s ease !important;
+      }
+      .nav-tab:hover a, .nav-tab-active a {
+        color: #00286d !important;
+        font-weight: 700 !important;
+      }
+      /* Border Glow Animation */
+      .nav-tab-active::after, .logo-tab::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(90deg, #00BFEA, #7B2FBE, #F05A22);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        animation: borderGlow 1.5s ease-out forwards;
+      }
+      @keyframes borderGlow {
+        0% { opacity: 0.8; clip-path: inset(0 100% 0 0); }
+        50% { opacity: 1; clip-path: inset(0 0 0 0); }
+        100% { opacity: 0.4; clip-path: inset(0 0 0 0); }
+      }
+    </style>
+    <style>
+      .signature-gradient {
+        background: linear-gradient(135deg, #00BFEA 0%, #7B2FBE 50%, #F05A22 100%);
+      }
+      .signature-gradient-text {
+        background: linear-gradient(135deg, #00BFEA 0%, #7B2FBE 50%, #F05A22 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .made-intelligent-text {
+        background: linear-gradient(90deg, #00BFEA, #7B2FBE, #F05A22, #00BFEA);
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientFlow 4s linear infinite;
+        will-change: background-position;
+      }
+      @keyframes gradientFlow {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 200% 50%; }
+      }
+      .ghost-border {
+        outline: 1px solid rgba(196, 198, 211, 0.15);
+      }
+      .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 40px -10px rgba(25, 28, 31, 0.04);
+      }
+      .card-hover:hover::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(90deg, #00BFEA, #7B2FBE, #F05A22);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        animation: borderGlow 1.5s ease-out forwards;
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+      
+      /* --- SCROLL REVEAL ENGINE --- */
+      .reveal-hidden {
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform, opacity;
+      }
+      
+      .reveal-hidden.reveal-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0) scale(1) !important;
+      }
+      
+      /* Modifiers (Initial States) */
+      .reveal-fade-up { transform: translateY(30px); }
+      .reveal-slide-left { transform: translateX(-40px); }
+      .reveal-slide-right-to-left { transform: translateX(40px); }
+      .reveal-scale { transform: scale(0.95); }
+      
+      /* Background Zoom modifier operates differently */
+      .reveal-zoom { 
+        transform: scale(1.0); 
+        transition: transform 3s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform;
+      }
+      .reveal-zoom.reveal-visible { transform: scale(1.05) !important; }
+      
+      /* Line Animation */
+      .reveal-line { 
+        height: 0%; 
+        transform-origin: top; 
+        transition: height 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal-line.reveal-visible { height: 100% !important; }
+      
+      .reveal-line-horizontal {
+        width: 0%;
+        transform-origin: left;
+        transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal-line-horizontal.reveal-visible { width: 100% !important; }
+      
+      @keyframes slideDownLogo {
+        from { transform: translateY(-100%); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      @keyframes slideDownLogoMobile {
+        from { transform: translateY(-100%) scale(0.85); opacity: 0; }
+        to { transform: translateY(0) scale(0.85); opacity: 1; }
+      }
+      .logo-load {
+        animation: slideDownLogo 1s cubic-bezier(0.22, 1, 0.36, 1) forwards, tabPulse 2s ease-in-out infinite 1s;
+      }
+      
+      /* --- MOBILE FIRST OVERRIDES (< 768px) --- */
+      @media (max-width: 768px) {
+        .logo-load {
+            animation: slideDownLogoMobile 1s cubic-bezier(0.22, 1, 0.36, 1) forwards, tabPulse 2s ease-in-out infinite 1s !important;
+        }
+        .logo-tab {
+            transform: scale(0.85) !important;
+            transform-origin: top left !important;
+            transition: transform 0.1s ease-out !important;
+        }
+        .logo-tab:active {
+            transform: scale(0.8) !important; /* 0.85 * ~0.95 for tactile feedback */
+        }
+        .made-intelligent-text, .reveal-hidden {
+            transform: translate3d(0, 0, 0); /* Force GPU acceleration */
+        }
+        /* Mobile Drawer State */
+        body.menu-open {
+            overflow: hidden !important;
+        }
+        body.menu-open #mobile-drawer {
+            transform: translateX(0);
+        }
+        body.menu-open #backdrop {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        /* Hamburger Animation */
+        body.menu-open .hamburger-line:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        body.menu-open .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        body.menu-open .hamburger-line:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+      }
+    </style>
 </head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-primary overflow-x-hidden">
+<!-- Section 1: TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#F8FAFC]/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200/50 shadow-sm transition-all duration-300 h-[60px] md:h-auto">
+<div class="flex justify-between items-center w-full px-6 max-w-7xl mx-auto h-full">
+<div class="logo-tab select-none">
+<img src="assets/Page 1.svg" alt="Acadeno Technologies" class="w-[180px] h-auto pointer-events-none select-none" draggable="false">
+</div>
+<div class="hidden md:flex items-start gap-2 h-full">
+<div class="nav-tab nav-tab-active">
+<a class="text-sm" href="#what-we-do">What We Do</a>
+</div>
+<div class="nav-tab">
+<a class="text-sm" href="#capabilities">Capabilities</a>
+</div>
+<div class="nav-tab">
+<a class="text-sm" href="#tech-stack">Tech Stack</a>
+</div>
+<div class="nav-tab">
+<a class="text-sm" href="#industries">Industries</a>
+</div>
+<div class="nav-tab">
+<a class="text-sm" href="#why-acadeno">Why Acadeno</a>
+</div>
+<div class="nav-tab">
+<a class="text-sm" href="#contact">Contact</a>
+</div>
+</div>
+<div class="hidden md:block py-4">
+<a href="https://wa.me/919447933266" target="_blank" class="signature-gradient text-white text-[10px] font-bold px-5 py-2.5 rounded-full scale-95 hover:scale-100 active:scale-95 transition-all tracking-wider inline-flex items-center justify-center">
+                Start a Conversation →
+            </a>
+</div>
+<!-- Mobile Hamburger -->
+<div class="md:hidden flex items-center justify-end h-full">
+   <button id="mobile-menu-btn" class="w-12 h-12 flex flex-col justify-center items-center gap-1.5 focus:outline-none bg-surface-container-low rounded-lg active:scale-95 transition-transform" aria-label="Menu">
+        <span class="hamburger-line block w-6 h-[2px] bg-primary transition-all duration-300 origin-center"></span>
+        <span class="hamburger-line block w-6 h-[2px] bg-primary transition-all duration-300 origin-center"></span>
+        <span class="hamburger-line block w-6 h-[2px] bg-primary transition-all duration-300 origin-center"></span>
+   </button>
+</div>
+</div>
+</nav>
 
-<body>
-
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <nav>
-        <a href="#home" class="logo-link">
-          <img src="assets/logo.png" alt="Acadeno" class="logo-img">
+<!-- Mobile Drawer -->
+<div id="backdrop" class="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-[90] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<div id="mobile-drawer" class="fixed top-0 right-0 w-[80%] max-w-sm h-[100dvh] bg-white shadow-2xl z-[100] transform translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-bl-[24px] flex flex-col pointer-events-auto">
+    <div class="p-6 flex justify-between items-center border-b border-slate-100">
+        <span class="font-headline font-extrabold text-primary text-lg">Menu</span>
+        <button id="close-menu-btn" class="w-10 h-10 flex items-center justify-center bg-surface-container-low rounded-full active:scale-95 transition-transform">
+            <span class="material-symbols-outlined text-on-surface">close</span>
+        </button>
+    </div>
+    <div class="flex-1 overflow-y-auto p-6 flex flex-col gap-2">
+        <a href="#what-we-do" class="drawer-link flex items-center min-h-[48px] font-headline font-semibold text-on-surface hover:text-primary transition-colors text-lg">What We Do</a>
+        <a href="#capabilities" class="drawer-link flex items-center min-h-[48px] font-headline font-semibold text-on-surface hover:text-primary transition-colors text-lg">Capabilities</a>
+        <a href="#tech-stack" class="drawer-link flex items-center min-h-[48px] font-headline font-semibold text-on-surface hover:text-primary transition-colors text-lg">Tech Stack</a>
+        <a href="#industries" class="drawer-link flex items-center min-h-[48px] font-headline font-semibold text-on-surface hover:text-primary transition-colors text-lg">Industries</a>
+        <a href="#why-acadeno" class="drawer-link flex items-center min-h-[48px] font-headline font-semibold text-on-surface hover:text-primary transition-colors text-lg">Why Acadeno</a>
+        <a href="#contact" class="drawer-link flex items-center min-h-[48px] font-headline font-semibold text-on-surface hover:text-primary transition-colors text-lg">Contact</a>
+    </div>
+    <div class="p-6 border-t border-slate-100">
+        <a href="https://wa.me/919447933266" target="_blank" class="w-full signature-gradient text-white text-sm font-bold px-6 py-4 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-transform">
+            <span class="material-symbols-outlined text-white text-lg" data-icon="chat">chat</span> Connect over WhatsApp
         </a>
-        <div class="mobile-menu-btn">☰</div>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#why-us">Why Us</a></li>
-          <li><a href="#contact" class="btn btn-primary"
-              style="padding: 0.5rem 1.5rem; font-size: 0.9rem; color: white !important;">Contact
-              Us</a></li>
-        </ul>
-      </nav>
     </div>
-  </header>
+</div>
+<!-- Section 2: Hero -->
+<header class="relative pt-32 pb-20 px-6 max-w-7xl mx-auto overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-8 z-10">
+<div class="flex gap-2 mb-6 flex-wrap">
+<span class="px-3 py-1 bg-surface-container-low ghost-border rounded-full text-[10px] uppercase font-bold tracking-widest text-primary">Enterprise AI Integration &amp; Software Engineering</span>
+</div>
+<h1 class="reveal-hidden reveal-fade-up font-headline text-[2.5rem] md:text-7xl font-extrabold leading-[1.1] md:leading-[1.1] tracking-tight text-on-surface mb-6">
+                    Your software, <br/>
+<span class="signature-gradient-text made-intelligent-text">made intelligent.</span>
+</h1>
+<p class="reveal-hidden reveal-fade-up text-lg md:text-xl font-light text-on-surface-variant max-w-2xl mb-10 leading-relaxed" style="transition-delay: 0.1s;">
+                    We embed AI directly into the systems your business already runs — no replacements, no disruption, no starting over. Just measurably smarter operations from day one.
+                </p>
+<div class="reveal-hidden reveal-scale flex flex-col sm:flex-row gap-4 mb-8" style="transition-delay: 0.2s;">
+<button class="px-8 py-4 bg-primary text-white font-bold rounded-xl text-sm transition-all hover:opacity-90 active:scale-95">Discuss Your Project →</button>
+<button class="px-8 py-4 bg-surface-container-lowest ghost-border text-on-surface font-bold rounded-xl text-sm transition-all hover:bg-surface-container">View Our Capabilities</button>
+</div>
+<div class="flex gap-4 flex-wrap text-sm text-on-surface-variant">
+    <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span> <strong>16+ Service Areas</strong></div>
+    <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span> <strong>7+ Global Clients</strong></div>
+    <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]" data-icon="location_on">location_on</span> Based in Govt Cyberpark, Calicut — <strong>Kerala's premier SEZ</strong></div>
+</div>
+</div>
+<div class="lg:col-span-4 relative block mt-8 lg:mt-0">
+<!-- Hero Image -->
+<div class="w-full aspect-square rounded-2xl relative overflow-hidden shadow-2xl ghost-border bg-surface-container-lowest max-w-sm mx-auto lg:max-w-none">
+<img alt="Acadeno Intelligence" class="w-full h-full object-cover" src="assets/Gemini_Generated_Image_cd5jnecd5jnecd5j.jpeg"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Section 3: Trust Bar -->
+<div class="bg-surface-container-low py-4 overflow-hidden ghost-border border-x-0 relative">
+<div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+<span class="text-xs font-bold tracking-widest text-on-surface-variant uppercase mr-6 shrink-0">Trusted by clients across:</span>
+<div class="flex-1 flex justify-between items-center opacity-60 grayscale select-none">
+<span class="text-[10px] font-bold tracking-[0.3em] uppercase">USA</span>
+<span class="text-[10px] font-bold tracking-[0.3em] uppercase">United Kingdom</span>
+<span class="text-[10px] font-bold tracking-[0.3em] uppercase">Europe</span>
+<span class="text-[10px] font-bold tracking-[0.3em] uppercase">Middle East</span>
+<span class="hidden md:inline text-[10px] font-bold tracking-[0.3em] uppercase">India</span>
+</div>
+</div>
+</div>
+<!-- Section 4: About -->
+<section id="about" class="py-24 px-6 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16 items-end">
+<div>
+<span class="label-sm uppercase tracking-widest text-primary mb-4 block font-bold">Who We Are</span>
+<h2 class="reveal-hidden reveal-slide-left font-headline text-3xl md:text-4xl font-bold text-on-surface leading-tight">We don't rebuild what works. We make it work smarter.</h2>
+</div>
+<div class="flex flex-col gap-4">
+    <p class="reveal-hidden reveal-fade-up text-on-surface-variant font-light leading-relaxed">
+        Acadeno Technologies Private Limited is an enterprise software development and AI engineering company headquartered in Calicut, Kerala — operating from Govt Cyberpark, one of India's most advanced SEZ technology hubs.
+    </p>
+    <p class="reveal-hidden reveal-fade-up text-on-surface-variant font-light leading-relaxed" style="transition-delay: 0.2s;">
+        Founded in 2025, we were built around a single, focused belief: that artificial intelligence should integrate into the tools your business already depends on — not replace them. Our team of AI specialists, full-stack engineers, and systems architects works across industries and geographies to solve one of the most persistent challenges in enterprise technology today: making legacy and existing software intelligent, without the cost and complexity of rebuilding.
+    </p>
+    <p class="reveal-hidden reveal-fade-up text-on-surface-variant font-light leading-relaxed" style="transition-delay: 0.4s;">
+        We serve clients across the USA, UK, Europe, and the Middle East — delivering solutions that are precise in execution, transparent in pricing, and built to perform at scale.
+    </p>
+</div>
+</div>
+<div class="stagger-group grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-lowest rounded-2xl ghost-border border-l-4 border-l-[#00BFEA]">
+<div class="text-4xl font-headline font-extrabold text-on-surface mb-2">2025</div>
+<div class="text-sm font-bold text-primary uppercase tracking-widest mb-2">Founded</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Built from day one for the AI age.</p>
+</div>
+<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-lowest rounded-2xl ghost-border border-l-4 border-l-[#7B2FBE]">
+<div class="text-4xl font-headline font-extrabold text-on-surface mb-2">18</div>
+<div class="text-sm font-bold text-primary uppercase tracking-widest mb-2">Specialists</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">AI engineers, architects, and full-stack developers.</p>
+</div>
+<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-lowest rounded-2xl ghost-border border-l-4 border-l-[#F05A22]">
+<div class="text-4xl font-headline font-extrabold text-on-surface mb-2">7+</div>
+<div class="text-sm font-bold text-primary uppercase tracking-widest mb-2">Global Clients</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Delivering enterprise value across the world.</p>
+</div>
+</div>
+</section>
+<!-- Section 5: What We Do -->
+<section id="what-we-do" class="py-24 bg-surface-container-low relative overflow-hidden">
+<div class="reveal-zoom absolute inset-0 z-0 pointer-events-none" style="background-image: url('assets/Wavy_Tech-21_Single-04.jpg'); background-size: cover; background-position: center; opacity: 0.05;"></div>
+<div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+<div class="w-16 h-16 signature-gradient rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="developer_mode">developer_mode</span>
+</div>
+<span class="label-sm uppercase tracking-widest text-primary mb-4 block font-bold text-center">Our Focus</span>
+<h2 class="reveal-hidden reveal-slide-left font-headline text-3xl md:text-5xl font-bold mb-8 text-on-surface">AI integration into software that already exists.</h2>
+<div class="flex flex-col gap-4">
+    <p class="reveal-hidden reveal-fade-up text-lg md:text-xl font-light text-on-surface-variant leading-relaxed text-left">
+        Most businesses aren't lacking software. They're lacking intelligence inside the software they already have. At Acadeno, our primary specialisation is implementing AI modules — machine learning, NLP, predictive analytics, and automation — directly into platforms your teams already use. Whether the system was built in-house or by a third-party vendor, we work with you to layer intelligence into it without disrupting existing workflows.
+    </p>
+    <p class="reveal-hidden reveal-fade-up text-lg md:text-xl font-light text-on-surface-variant leading-relaxed text-left" style="transition-delay: 0.2s;">
+        Beyond AI integration, we deliver a complete suite of technology services: from full-stack web and mobile development to IoT, embedded systems, cloud infrastructure, and cybersecurity — giving enterprise clients a single, accountable engineering partner across their entire technology landscape.
+    </p>
+</div>
+</div>
+</section>
+<!-- Section 6: Capabilities (16 Cards Bento-like Grid) -->
+<section id="capabilities" class="py-24 px-6 max-w-7xl mx-auto">
+<div class="mb-12">
+<span class="label-sm uppercase tracking-widest text-primary mb-2 block font-bold">Capabilities</span>
+<h2 class="reveal-hidden reveal-slide-left font-headline text-3xl font-bold text-on-surface">What we engineer.</h2>
+<p class="reveal-hidden reveal-fade-up font-light text-on-surface-variant mt-2" style="transition-delay: 0.1s;">Sixteen service areas. One consistent standard of delivery.</p>
+</div>
+<div class="stagger-group grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- 16 Capability Cards -->
+<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="integration_instructions">integration_instructions</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">AI Integration into Existing Software</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">We embed AI directly into your current platforms — no migration, no replacement, no operational disruption.</p>
+</div>
+</div>
+<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="model_training">model_training</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">Custom AI Solutions &amp; Models</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Production-ready machine learning, computer vision, NLP, and predictive analytics — built around your specific business requirements.</p>
+</div>
+</div>
+<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="smart_toy">smart_toy</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">AI Agents &amp; Intelligent Automation</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Autonomous LLM agents, multi-agent orchestration, and robotic process automation engineered for complex, high-volume enterprise workflows.</p>
+</div>
+</div>
+<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="search_insights">search_insights</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">RAG Knowledge Systems</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Private knowledge pipelines, semantic search, and enterprise document intelligence — keeping your data secure and your teams informed instantly.</p>
+</div>
+</div>
+<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="web">web</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">Web Application Development</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Scalable, high-performance web applications built on modern full-stack frameworks, designed for enterprise-grade reliability and user experience.</p>
+</div>
+</div>
+<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="phone_iphone">phone_iphone</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">Mobile Application Development</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Cross-platform and native iOS/Android applications engineered for performance, scale, and seamless backend integration.</p>
+</div>
+</div>
+<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="api">api</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">API &amp; System Integration</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">End-to-end interoperability across platforms, tools, and enterprise systems — through robust API architecture and custom middleware solutions.</p>
+</div>
+</div>
+<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="analytics">analytics</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">Data Analytics &amp; Business Intelligence</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">From raw data pipelines to executive dashboards — we turn your operational data into clear, actionable strategic intelligence.</p>
+</div>
+</div>
+<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="cloud">cloud</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">Cloud &amp; DevOps</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Cloud-native architecture, CI/CD automation, containerisation, and infrastructure management across AWS, Google Cloud, and Microsoft Azure.</p>
+</div>
+</div>
+<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="gpp_good">gpp_good</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">Cybersecurity</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Security assessments, vulnerability management, compliance frameworks, and hardened infrastructure — protecting your systems and your clients.</p>
+</div>
+</div>
+<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="router">router</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">IoT Solutions</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Sensor integration, edge computing, and cloud-connected device ecosystems for industrial and commercial environments.</p>
+</div>
+</div>
+<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="memory">memory</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">Embedded Systems</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Microcontroller and edge device solutions engineered for real-time, mission-critical environments.</p>
+</div>
+</div>
+<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="precision_manufacturing">precision_manufacturing</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">Robotics &amp; Automation</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Industrial and commercial robotics solutions that reduce operational overhead and bring measurable precision to physical workflows.</p>
+</div>
+</div>
+<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="location_city">location_city</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">Smart City Solutions</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">IoT and AI-driven urban infrastructure systems — purpose-built for efficient, scalable city and government operations.</p>
+</div>
+</div>
+<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="campaign">campaign</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">Digital Marketing</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">SEO, SEM, content strategy, and campaign analytics with clear performance metrics and accountable outcomes.</p>
+</div>
+</div>
+<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="psychology">psychology</span>
+<div>
+<h3 class="text-sm font-bold text-on-surface mb-2">AI Consulting &amp; Training</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Strategic AI advisory and structured training programmes — helping organisations adopt AI with confidence and clarity.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 7: Tech Stack -->
+<section id="tech-stack" class="py-24 bg-surface-container-lowest px-6">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16 text-center max-w-2xl mx-auto">
+<h2 class="reveal-hidden reveal-slide-left font-headline text-3xl font-bold text-on-surface mb-4">Our Technology Stack</h2>
+<p class="reveal-hidden reveal-fade-up font-light text-on-surface-variant" style="transition-delay: 0.1s;">We select tools based on structural integrity, scalability, and long-term maintainability.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Group 1 -->
+<div class="reveal-hidden reveal-slide-right-to-left space-y-4">
+<h3 class="font-bold text-sm uppercase tracking-widest text-[#00BFEA]">AI &amp; Machine Learning</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">TensorFlow</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">PyTorch</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Hugging Face Transformers</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">LangChain</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">OpenAI API</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Gemini API</span>
+</div>
+</div>
+<!-- Group 2 -->
+<div class="reveal-hidden reveal-slide-right-to-left space-y-4">
+<h3 class="font-bold text-sm uppercase tracking-widest text-[#7B2FBE]">Programming Languages</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Python</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">JavaScript</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">TypeScript</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Dart</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Java</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Kotlin</span>
+</div>
+</div>
+<!-- Group 3 -->
+<div class="reveal-hidden reveal-slide-right-to-left space-y-4">
+<h3 class="font-bold text-sm uppercase tracking-widest text-[#F05A22]">Web &amp; Mobile</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">React.js</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Next.js</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Node.js</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Django</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">FastAPI</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Flutter</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">React Native</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">GraphQL</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">REST APIs</span>
+</div>
+</div>
+<!-- Group 4 -->
+<div class="space-y-4">
+<h3 class="font-bold text-sm uppercase tracking-widest text-[#1B3F8B]">Cloud &amp; Infrastructure</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">AWS</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Google Cloud</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Microsoft Azure</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Docker</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Kubernetes</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">GitHub Actions</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Jenkins</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Linux / Ubuntu</span>
+</div>
+</div>
+<!-- Group 5 -->
+<div class="space-y-4">
+<h3 class="font-bold text-sm uppercase tracking-widest text-[#F5A623]">Data &amp; Storage</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">PostgreSQL</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">MySQL</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">MongoDB</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Firebase</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Apache Kafka</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Apache Spark</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Power BI</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Tableau</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Metabase</span>
+</div>
+</div>
+<!-- Group 6 -->
+<div class="space-y-4">
+<h3 class="font-bold text-sm uppercase tracking-widest text-[#460079]">IoT &amp; Automation</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">MQTT</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">LoRaWAN</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Zigbee</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">ROS</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Edge Computing Frameworks</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Raspberry Pi</span>
+<span class="px-3 py-1 bg-surface-container ghost-border rounded-lg text-xs font-medium">Arduino</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 7.5: Industries -->
+<section id="industries" class="py-24 px-6 max-w-7xl mx-auto">
+<div class="mb-12 text-center">
+<h2 class="font-headline text-3xl font-bold text-on-surface">Industries We Serve</h2>
+<p class="font-light text-on-surface-variant mt-2">Delivering tailored intelligence across diverse enterprise sectors.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+<div class="p-6 bg-surface-container-low rounded-xl text-center flex flex-col items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="health_and_safety">health_and_safety</span>
+<span class="text-xs font-bold text-on-surface">Healthcare &amp; MedTech</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl text-center flex flex-col items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="account_balance">account_balance</span>
+<span class="text-xs font-bold text-on-surface">Financial Services</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl text-center flex flex-col items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-xs font-bold text-on-surface">E-commerce &amp; Retail</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl text-center flex flex-col items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="conveyor_belt">conveyor_belt</span>
+<span class="text-xs font-bold text-on-surface">Manufacturing</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl text-center flex flex-col items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="school">school</span>
+<span class="text-xs font-bold text-on-surface">Education &amp; EdTech</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl text-center flex flex-col items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="domain">domain</span>
+<span class="text-xs font-bold text-on-surface">Real Estate &amp; PropTech</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl text-center flex flex-col items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="account_balance">account_balance</span>
+<span class="text-xs font-bold text-on-surface">Public Sector</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl text-center flex flex-col items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="electric_bolt">electric_bolt</span>
+<span class="text-xs font-bold text-on-surface">Energy &amp; Utilities</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl text-center flex flex-col items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="movie">movie</span>
+<span class="text-xs font-bold text-on-surface">Media</span>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl text-center flex flex-col items-center justify-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="directions_car">directions_car</span>
+<span class="text-xs font-bold text-on-surface">Transportation</span>
+</div>
+</div>
+</section>
+<!-- Section 8: Why Acadeno -->
+<section id="why-acadeno" class="py-24 px-6 max-w-7xl mx-auto">
+<h2 class="font-headline text-3xl font-bold mb-12 text-on-surface">A different kind of technology partner.</h2>
+<div class="stagger-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-low rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 font-headline text-5xl font-black text-on-surface opacity-5 group-hover:opacity-10 transition-opacity">01</div>
+<h4 class="font-bold text-lg mb-4 text-on-surface">AI Integration Specialists</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">We operate in a space very few companies address — embedding AI into software that businesses already use, regardless of who built it. This isn't a side offering. It's what we were built to do.</p>
+</div>
+<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-low rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 font-headline text-5xl font-black text-on-surface opacity-5 group-hover:opacity-10 transition-opacity">02</div>
+<h4 class="font-bold text-lg mb-4 text-on-surface">NDA First. Always.</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Every engagement begins with a signed NDA. Full source code ownership is transferred to you at delivery. Your intellectual property is completely protected from day one.</p>
+</div>
+<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-low rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 font-headline text-5xl font-black text-on-surface opacity-5 group-hover:opacity-10 transition-opacity">03</div>
+<h4 class="font-bold text-lg mb-4 text-on-surface">Transparent Pricing. Real Value.</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">We don't inflate retainers or bury costs in ambiguous scope. Enterprise-grade technology at a price point that reflects honest commercial terms — every time.</p>
+</div>
+<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-low rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 font-headline text-5xl font-black text-on-surface opacity-5 group-hover:opacity-10 transition-opacity">04</div>
+<h4 class="font-bold text-lg mb-4 text-on-surface">Lean Structure. Fast Execution.</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">No corporate red tape between your requirements and our delivery. Decisions happen at the right level, fast. We move at the speed your business actually demands.</p>
+</div>
+<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-low rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 font-headline text-5xl font-black text-on-surface opacity-5 group-hover:opacity-10 transition-opacity">05</div>
+<h4 class="font-bold text-lg mb-4 text-on-surface">SEZ-Based. Globally Competitive.</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Operating from Govt Cyberpark, Calicut — Kerala's premier Special Economic Zone — we combine world-class infrastructure with the pricing advantages of an SEZ-registered entity serving global markets.</p>
+</div>
+<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-low rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 font-headline text-5xl font-black text-on-surface opacity-5 group-hover:opacity-10 transition-opacity">06</div>
+<h4 class="font-bold text-lg mb-4 text-on-surface">Full-Spectrum Engineering.</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">From AI integration to embedded systems, cloud architecture to cybersecurity — you get one accountable engineering partner across your entire technology landscape, not a fragmented vendor ecosystem.</p>
+</div>
+</div>
+</section>
+<!-- Section 9: Process -->
+<section id="process" class="py-24 bg-surface px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20 max-w-2xl mx-auto">
+<span class="label-sm uppercase tracking-widest text-primary mb-2 block font-bold">How We Work</span>
+<h2 class="reveal-hidden reveal-slide-left font-headline text-3xl font-bold text-on-surface mb-4">From first conversation to live deployment.</h2>
+<p class="reveal-hidden reveal-fade-up font-light text-on-surface-variant" style="transition-delay: 0.1s;">We operate on a structured engagement model — designed to give enterprise clients clarity at every stage, from initial scoping through to post-deployment support.</p>
+</div>
+<div class="relative">
+<!-- Track -->
+<div class="absolute top-4 left-0 w-full h-[2px] bg-surface-container-highest"></div>
+<!-- Active Line -->
+<div class="reveal-hidden reveal-line-horizontal absolute top-4 left-0 h-[2px] signature-gradient"></div>
+<div class="stagger-group grid grid-cols-2 md:grid-cols-6 gap-8 relative">
+<div class="reveal-hidden reveal-fade-up stagger-item text-center">
+<div class="w-8 h-8 rounded-full bg-primary mx-auto mb-6 flex items-center justify-center text-white ring-8 ring-surface relative z-10">
+<span class="text-[10px] font-bold">1</span>
+</div>
+<h4 class="text-sm font-bold mb-2">Discovery</h4>
+<p class="text-[10px] text-on-surface-variant leading-relaxed">We begin with a detailed technical discovery session to understand your existing systems, operational goals, and constraints. No assumptions. No generic proposals.</p>
+</div>
+<div class="reveal-hidden reveal-fade-up stagger-item text-center">
+<div class="w-8 h-8 rounded-full bg-primary mx-auto mb-6 flex items-center justify-center text-white ring-8 ring-surface relative z-10">
+<span class="text-[10px] font-bold">2</span>
+</div>
+<h4 class="text-sm font-bold mb-2">Scoping &amp; Agreement</h4>
+<p class="text-[10px] text-on-surface-variant leading-relaxed">A precise scope of work is defined, agreed, and signed — including timelines, deliverables, and commercial terms. NDA executed at this stage.</p>
+</div>
+<div class="reveal-hidden reveal-fade-up stagger-item text-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest border-2 border-outline-variant mx-auto mb-6 flex items-center justify-center text-on-surface ring-8 ring-surface relative z-10">
+<span class="text-[10px] font-bold">3</span>
+</div>
+<h4 class="text-sm font-bold mb-2">Engineering &amp; Development</h4>
+<p class="text-[10px] text-on-surface-variant leading-relaxed">Our team gets to work. You have direct access to your project lead throughout. Regular progress updates, no surprises.</p>
+</div>
+<div class="reveal-hidden reveal-fade-up stagger-item text-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest border-2 border-outline-variant mx-auto mb-6 flex items-center justify-center text-on-surface ring-8 ring-surface relative z-10">
+<span class="text-[10px] font-bold">4</span>
+</div>
+<h4 class="text-sm font-bold mb-2">Testing &amp; QA</h4>
+<p class="text-[10px] text-on-surface-variant leading-relaxed">Rigorous quality assurance across all deliverables before any handover. We test against your real-world environment, not just internal benchmarks.</p>
+</div>
+<div class="reveal-hidden reveal-fade-up stagger-item text-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest border-2 border-outline-variant mx-auto mb-6 flex items-center justify-center text-on-surface ring-8 ring-surface relative z-10">
+<span class="text-[10px] font-bold">5</span>
+</div>
+<h4 class="text-sm font-bold mb-2">Deployment &amp; Handover</h4>
+<p class="text-[10px] text-on-surface-variant leading-relaxed">Full deployment, source code transfer, and documentation. Your team is equipped to operate and maintain everything we deliver.</p>
+</div>
+<div class="reveal-hidden reveal-fade-up stagger-item text-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest border-2 border-outline-variant mx-auto mb-6 flex items-center justify-center text-on-surface ring-8 ring-surface relative z-10">
+<span class="text-[10px] font-bold">6</span>
+</div>
+<h4 class="text-sm font-bold mb-2">Ongoing Support</h4>
+<p class="text-[10px] text-on-surface-variant leading-relaxed">Post-deployment support available on agreed terms. We remain a reachable partner — not a vendor that disappears after go-live.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 10: Contact -->
+<section id="contact" class="py-24 px-6 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 bg-surface-container-lowest rounded-2xl ghost-border overflow-hidden">
+<div class="p-10 lg:p-16 bg-[#00286d] text-white">
+<span class="label-sm uppercase tracking-widest text-[#00BFEA] mb-4 block font-bold">Let's Talk</span>
+<h2 class="font-headline text-3xl font-bold mb-6 leading-tight text-white">Ready to make your systems smarter?</h2>
+<p class="font-bold text-white mb-10 leading-relaxed text-sm">Whether you have a fully defined project brief or an early-stage problem you need to think through, our team is ready to engage. We work with clients across time zones and respond to every serious enquiry within one business day.</p>
+<div class="space-y-8">
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-[#00BFEA] text-2xl" data-icon="alternate_email">alternate_email</span>
+<div>
+<p class="text-[10px] uppercase tracking-widest font-bold text-white mb-1">Email / Web</p>
+<p class="text-base font-bold text-white">sales@acadeno.com<br/>www.acadeno.com</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-[#00BFEA] text-2xl" data-icon="location_on">location_on</span>
+<div>
+<p class="text-[10px] uppercase tracking-widest font-bold text-white mb-1">Headquarters</p>
+<p class="text-base font-bold text-white leading-relaxed">UB-19, Govt Cyberpark,<br/>Calicut, Kerala 673016, India</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-[#00BFEA] text-2xl" data-icon="call">call</span>
+<div>
+<p class="text-[10px] uppercase tracking-widest font-bold text-white mb-1">Phone</p>
+<p class="text-base font-bold text-white">+91 495 460 05 04</p>
+</div>
+</div>
+<a href="https://wa.me/919447933266" target="_blank" class="flex gap-6 hover:translate-x-1 transition-transform group">
+<span class="material-symbols-outlined text-[#25D366] text-2xl group-hover:scale-110 transition-transform" data-icon="chat">chat</span>
+<div>
+<p class="text-[10px] uppercase tracking-widest font-bold text-white mb-1">WhatsApp</p>
+<p class="text-base font-bold text-white">+91 94479 33266</p>
+</div>
+</a>
+</div>
+</div>
+<div class="p-10 lg:p-20">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Full Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-secondary text-sm p-4" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Email Address</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-secondary text-sm p-4" placeholder="john@company.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Service Interest</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-secondary text-sm p-4">
+<option>AI Integration</option>
+<option>Custom AI Solutions</option>
+<option>Full-Stack Engineering</option>
+<option>Cloud &amp; DevOps</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Project Brief</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-secondary text-sm p-4" placeholder="Tell us about your technical challenges..." rows="4"></textarea>
+</div>
+<div class="flex flex-col gap-3">
+<button class="w-full signature-gradient text-white font-bold py-4 rounded-xl transition-transform active:scale-[0.98]" type="submit">
+Start a Conversation →
+</button>
+<button type="button" class="w-full border-2 border-surface-container-highest text-on-surface font-bold py-3.5 rounded-xl transition-transform active:scale-[0.98] hover:bg-surface-container-low">
+Download Company Profile
+</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<footer class="bg-[#0D0E14] text-white pt-24 pb-12 overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 mb-20">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+<!-- Column 1: Brand -->
+<div class="lg:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<img src="assets/Page 1.svg" alt="Acadeno Technologies" class="h-7 w-auto brightness-0 invert" draggable="false">
+<span class="text-xl font-extrabold tracking-tight font-headline">Acadeno</span>
+</div>
+<p class="text-slate-400 text-sm font-light leading-relaxed mb-6">
+Integrating minds, technologies, and possibilities.
+</p>
+<div class="space-y-1">
+<p class="text-[#94A3B8] text-[11px] font-medium uppercase tracking-wider">Headquarters</p>
+<p class="text-[#94A3B8] text-xs leading-relaxed opacity-80">
+UB-19, Govt Cyberpark,<br/>
+Calicut, Kerala 673016, India
+</p>
+</div>
+</div>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <canvas id="hero-canvas"></canvas> <!-- Particle Background -->
-    <div class="container">
-      <div class="hero-content">
-        <span class="text-gradient"
-          style="font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem; display: block;"></span>
-        <h1>AI-Powered<br><span class="typing-text"></span><span class="cursor">|</span></h1>
-        <p>Intelligent Technology for Modern Businesses. We design and deliver AI-powered web, mobile, and digital
-          marketing solutions that help organizations operate <strong>smarter, grow faster, and stay
-            competitive</strong> in a rapidly evolving digital landscape.</p>
+<!-- Column 2: Navigation -->
+<div>
+<h4 class="text-[12px] font-semibold uppercase tracking-[0.2em] mb-8 text-slate-500">Navigation</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-400 hover:text-[#00BFEA] transition-colors text-sm font-normal leading-[1.8]" href="#what-we-do">What We Do</a></li>
+<li><a class="text-slate-400 hover:text-[#00BFEA] transition-colors text-sm font-normal leading-[1.8]" href="#capabilities">Capabilities</a></li>
+<li><a class="text-slate-400 hover:text-[#00BFEA] transition-colors text-sm font-normal leading-[1.8]" href="#tech-stack">Tech Stack</a></li>
+<li><a class="text-slate-400 hover:text-[#00BFEA] transition-colors text-sm font-normal leading-[1.8]" href="#why-acadeno">Why Acadeno</a></li>
+<li><a class="text-slate-400 hover:text-[#00BFEA] transition-colors text-sm font-normal leading-[1.8]" href="#contact">Contact</a></li>
+</ul>
+</div>
 
-        <div class="hero-features">
-          <div class="feature-tag">🔹 AI-First Strategy</div>
-          <div class="feature-tag">🔹 End-to-End Project Management</div>
-          <div class="feature-tag">🔹 Data-Driven Execution</div>
-        </div>
+<!-- Column 3: Industries -->
+<div>
+<h4 class="text-[12px] font-semibold uppercase tracking-[0.2em] mb-8 text-slate-500">Industries</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-400 hover:text-[#7B2FBE] transition-colors text-sm font-normal leading-[1.8]" href="#industries">Healthcare</a></li>
+<li><a class="text-slate-400 hover:text-[#7B2FBE] transition-colors text-sm font-normal leading-[1.8]" href="#industries">FinTech</a></li>
+<li><a class="text-slate-400 hover:text-[#7B2FBE] transition-colors text-sm font-normal leading-[1.8]" href="#industries">E-commerce</a></li>
+<li><a class="text-slate-400 hover:text-[#7B2FBE] transition-colors text-sm font-normal leading-[1.8]" href="#industries">Manufacturing</a></li>
+<li><a class="text-slate-400 hover:text-[#7B2FBE] transition-colors text-sm font-normal leading-[1.8]" href="#industries">EdTech</a></li>
+</ul>
+</div>
 
-        <div style="margin-top: 2rem;">
-          <a href="#contact" class="btn btn-primary">Get Started</a>
-          <a href="#services" class="btn btn-outline" style="margin-left: 1rem;">Our Services</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Column 4: Legal -->
+<div>
+<h4 class="text-[12px] font-semibold uppercase tracking-[0.2em] mb-8 text-slate-500">Legal</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm font-normal leading-[1.8]" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm font-normal leading-[1.8]" href="#">Terms of Service</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm font-normal leading-[1.8]" href="#">Governance</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm font-normal leading-[1.8]" href="#">Security</a></li>
+</ul>
+</div>
 
-  <!-- Quick Overview -->
-  <section class="quick-overview">
-    <div class="container">
-      <h2 class="reveal fade-bottom">Transforming Businesses Through Intelligence</h2>
-      <p class="reveal fade-bottom reveal-delay-1">Acadeno combines <strong>advanced technology, strategic thinking,
-          and performance-driven execution</strong> to create scalable and future-ready digital systems.</p>
+<!-- Column 5: Contact -->
+<div>
+<h4 class="text-[12px] font-semibold uppercase tracking-[0.2em] mb-8 text-slate-500">Connect</h4>
+<ul class="space-y-4">
+<li>
+<a href="https://wa.me/919447933266" target="_blank" class="flex items-center gap-3 group">
+<span class="material-symbols-outlined text-[18px] text-[#25D366] group-hover:scale-110 transition-transform" data-icon="chat">chat</span>
+<span class="text-slate-400 group-hover:text-white text-sm transition-colors">+91 94479 33266</span>
+</a>
+</li>
+<li>
+<a href="mailto:sales@acadeno.com" class="flex items-center gap-3 group">
+<span class="material-symbols-outlined text-[18px] text-[#00BFEA] group-hover:scale-110 transition-transform" data-icon="alternate_email">alternate_email</span>
+<span class="text-slate-400 group-hover:text-white text-sm transition-colors">sales@acadeno.com</span>
+</a>
+</li>
+<li class="flex gap-4 pt-2">
+<a href="#" class="text-slate-500 hover:text-white transition-colors"><span class="material-symbols-outlined text-xl" data-icon="share">share</span></a>
+<a href="#" class="text-slate-500 hover:text-white transition-colors"><span class="material-symbols-outlined text-xl" data-icon="hub">hub</span></a>
+<a href="#" class="text-slate-500 hover:text-white transition-colors"><span class="material-symbols-outlined text-xl" data-icon="public">public</span></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
 
-      <div class="highlight-box reveal fade-bottom reveal-delay-2">
-        Our approach is built on one principle: <strong>align technology with business goals.</strong>
-      </div>
-    </div>
-  </section>
+<!-- Center Statement -->
+<div class="w-full text-center mb-12 opacity-10 select-none pointer-events-none">
+<h3 class="font-headline text-3xl md:text-5xl font-extrabold italic tracking-tighter uppercase signature-gradient-text">
+Technically superior. Structurally sound.
+</h3>
+</div>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2 class="section-title">Who We Are</h2>
-      <p class="section-subtitle">Delivering Intelligent Digital Solutions for Modern Organizations</p>
+<!-- Bottom Bar -->
+<div class="border-t border-white/5 pt-8">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-500 text-[11px] font-medium tracking-wide">
+© 2025 ACADENO TECHNOLOGIES PRIVATE LIMITED. ALL RIGHTS RESERVED.
+</p>
+<p class="text-slate-500 text-[11px] font-bold tracking-[0.2em] uppercase">
+Made in SEZ, Kerala
+</p>
+</div>
+</div>
+</footer>
+<script>
+    /* Magnetic Logo Pull Logic */
+    const logoTab = document.querySelector('.logo-tab');
+    if (logoTab) {
+      let rect = logoTab.getBoundingClientRect();
+      let isMagnetic = false;
+      
+      const updateRect = () => {
+         const oldTransform = logoTab.style.transform;
+         logoTab.style.transform = 'none';
+         rect = logoTab.getBoundingClientRect();
+         logoTab.style.transform = oldTransform;
+      };
+      
+      window.addEventListener('resize', updateRect);
+      window.addEventListener('scroll', updateRect);
 
-      <div class="about-container-flex">
-        <div class="about-image reveal fade-right">
-          <img src="assets/about-tech.png" alt="AI-Powered Digital Innovation">
-        </div>
-        <div class="about-grid">
-          <div class="about-card reveal fade-left reveal-delay-1">
-            <h3>Our Mission</h3>
-            <p>To help businesses transition from manual operations to <strong>intelligent automation</strong>,
-              leveraging AI to unlock new levels of efficiency, growth, and competitive advantage.</p>
-          </div>
-          <div class="about-card reveal fade-left reveal-delay-2">
-            <h3>Our Approach</h3>
-            <p>We combine advanced AI technology, strategic thinking, and performance-driven execution to build
-              <strong>scalable and future-ready digital systems</strong> tailored to each client's needs.
-            </p>
-          </div>
-          <div class="about-card reveal fade-left reveal-delay-3">
-            <h3>Our Vision</h3>
-            <p>To be a leading technology partner for businesses worldwide, delivering intelligent solutions that
-              create <strong>sustainable digital growth</strong> and long-term value.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      document.addEventListener('mousemove', (e) => {
+        // Disable on touch devices or small screens
+        if (window.matchMedia("(pointer: coarse)").matches || window.innerWidth <= 768) return;
 
-  <!-- Services Section -->
-  <section id="services" class="programs">
-    <div class="container">
-      <h2 class="section-title">Our Services</h2>
-      <p class="section-subtitle">Comprehensive AI-powered solutions for every digital need</p>
+        // Use updated rect bounds securely
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        const deltaX = e.clientX - centerX;
+        const deltaY = e.clientY - centerY;
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        const radius = 250; // generous proximity radius
+        
+        if (distance < radius) {
+          // Normalize strength to max shift of ~2-3px
+          const maxShift = 3;
+          // Easing function to make it smoother towards the center
+          const intensity = 1 - Math.pow(distance / radius, 2); 
+          
+          const pullX = (deltaX / radius) * maxShift * intensity;
+          const pullY = (deltaY / radius) * maxShift * intensity;
+          
+          // Slight 3D rotation to achieve the "corners follow" effect
+          const rotateX = -(deltaY / radius) * 1.5 * intensity;
+          const rotateY = (deltaX / radius) * 1.5 * intensity;
+          
+          logoTab.style.transform = `perspective(800px) translate3d(${pullX}px, ${pullY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          isMagnetic = true;
+        } else if (isMagnetic) {
+          logoTab.style.transform = `perspective(800px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg)`;
+          isMagnetic = false;
+        }
+      });
 
-      <div class="program-cards">
+      /* Logo Click - Scroll to Top */
+      logoTab.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Optional: Reset nav state
+        const navTabs = document.querySelectorAll('.nav-tab');
+        navTabs.forEach(t => t.classList.remove('nav-tab-active'));
+      });
+    }
 
-        <!-- AI Solutions -->
-        <div class="program-card reveal fade-bottom">
-          <h3>Artificial Intelligence Solutions</h3>
-          <span class="program-subtitle">Intelligent Automation & AI Systems</span>
-          <ul>
-            <li>AI Chatbots &amp; Virtual Assistants</li>
-            <li>Business Process Automation</li>
-            <li>AI Agents &amp; Workflow Optimization</li>
-            <li>Predictive Analytics &amp; Recommendation Systems</li>
-            <li>Custom AI Integration for Existing Platforms</li>
-          </ul>
-        </div>
+    /* Dynamic Nav Tab Logic */
+    const navTabs = document.querySelectorAll('.nav-tab');
+    navTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            navTabs.forEach(t => t.classList.remove('nav-tab-active'));
+            tab.classList.add('nav-tab-active');
+        });
+    });
 
-        <!-- Web Development -->
-        <div class="program-card reveal fade-bottom reveal-delay-1">
-          <h3>Web Development</h3>
-          <span class="program-subtitle">Scalable, Secure &amp; High-Performance</span>
-          <ul>
-            <li>Corporate &amp; Business Websites</li>
-            <li>Custom Web Applications</li>
-            <li>E-Commerce Platforms</li>
-            <li>AI-Integrated Websites</li>
-            <li>High-Performance Landing Pages</li>
-          </ul>
-        </div>
+    /* Mobile Drawer Toggle Logic */
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const backdrop = document.getElementById('backdrop');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+    
+    if (mobileMenuBtn) {
+        const toggleMenu = () => document.body.classList.toggle('menu-open');
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        backdrop.addEventListener('click', toggleMenu);
+        drawerLinks.forEach(link => link.addEventListener('click', toggleMenu));
+    }
 
-        <!-- Mobile App Development -->
-        <div class="program-card reveal fade-bottom reveal-delay-2">
-          <h3>Mobile App Development</h3>
-          <span class="program-subtitle">Reliable Architecture for Long-Term Growth</span>
-          <ul>
-            <li>Cross-Platform Applications (Flutter)</li>
-            <li>Android &amp; iOS App Development</li>
-            <li>SaaS-Based Applications</li>
-            <li>API &amp; Cloud Integration</li>
-            <li>Firebase &amp; Real-Time Systems</li>
-          </ul>
-        </div>
+    /* --- SCROLL REVEAL OBSERVER --- */
+    document.addEventListener("DOMContentLoaded", () => {
+        // Add logo load animation inside DOMContentLoaded
+        if(logoTab) {
+            logoTab.classList.add('logo-load');
+        }
 
-      </div>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -10% 0px',
+            threshold: 0.1
+        };
 
-      <!-- Digital Marketing -->
-      <div style="margin-top: 4rem;">
-        <h3 style="margin-bottom: 3rem; text-align: center;">Digital Marketing &amp; Growth</h3>
-        <div class="domains-list">
-          <div class="domain-card reveal fade-bottom">
-            <div class="domain-img-wrapper">
-              <img src="assets/digital-marketing.svg" alt="AI-Based Marketing Automation">
-            </div>
-            <div class="domain-info">
-              <h4>AI-Based Marketing Automation</h4>
-            </div>
-          </div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                    // observer.unobserve(entry.target); // keep it dynamic if they scroll up/down
+                }
+            });
+        }, observerOptions);
 
-          <div class="domain-card reveal fade-bottom reveal-delay-1">
-            <div class="domain-img-wrapper">
-              <img src="assets/domain-ai.png" alt="Performance Marketing">
-            </div>
-            <div class="domain-info">
-              <h4>Performance Marketing</h4>
-            </div>
-          </div>
+        document.querySelectorAll('.reveal-hidden, .reveal-zoom, .reveal-line').forEach((element) => {
+            observer.observe(element);
+        });
 
-          <div class="domain-card reveal fade-bottom reveal-delay-2">
-            <div class="domain-img-wrapper">
-              <img src="assets/flutter-mobile.svg" alt="Search Engine Optimization">
-            </div>
-            <div class="domain-info">
-              <h4>SEO &amp; Social Media Strategy</h4>
-            </div>
-          </div>
-
-          <div class="domain-card reveal fade-bottom reveal-delay-3">
-            <div class="domain-img-wrapper">
-              <img src="assets/mern-stack.svg" alt="Lead Generation">
-            </div>
-            <div class="domain-info">
-              <h4>Lead Generation &amp; Funnel Optimization</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Overview Grid -->
-  <section class="services">
-    <div class="container">
-      <h2 class="section-title">What We Build</h2>
-
-      <div class="services-grid">
-        <div class="service-col">
-          <h3>AI Solutions</h3>
-          <ul class="service-list">
-            <li>AI Chatbots &amp; Assistants</li>
-            <li>Business Process Automation</li>
-            <li>AI Agents &amp; Workflow</li>
-          </ul>
-        </div>
-
-        <div class="service-col">
-          <h3>Development</h3>
-          <ul class="service-list">
-            <li>Web &amp; Mobile Applications</li>
-            <li>E-Commerce &amp; SaaS Platforms</li>
-            <li>API &amp; Cloud Integration</li>
-          </ul>
-        </div>
-
-        <div class="service-col">
-          <h3>Growth &amp; Marketing</h3>
-          <ul class="service-list">
-            <li>Performance Marketing</li>
-            <li>SEO &amp; Social Media</li>
-            <li>Funnel &amp; Lead Optimization</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Us -->
-  <section id="why-us" class="why-us">
-    <div class="container">
-      <h2 class="section-title">Why Work With Us</h2>
-
-      <div class="why-wrapper">
-        <div class="why-grid">
-          <div class="why-item reveal fade-right">
-            <span class="check-icon">✓</span>
-            <h4>AI-First Strategy</h4>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">Intelligence at every layer</p>
-          </div>
-          <div class="why-item reveal fade-right reveal-delay-1">
-            <span class="check-icon">✓</span>
-            <h4>Industry-Oriented Dev</h4>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">Built for real business needs</p>
-          </div>
-          <div class="why-item reveal fade-right reveal-delay-2">
-            <span class="check-icon">✓</span>
-            <h4>End-to-End Management</h4>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">From concept to deployment</p>
-          </div>
-          <div class="why-item reveal fade-right reveal-delay-3">
-            <span class="check-icon">✓</span>
-            <h4>Data-Driven Decisions</h4>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">Insights that drive growth</p>
-          </div>
-          <div class="why-item reveal fade-right">
-            <span class="check-icon">✓</span>
-            <h4>Long-Term Partnership</h4>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">We grow with your business</p>
-          </div>
-          <div class="why-item reveal fade-right reveal-delay-1">
-            <span class="check-icon">✓</span>
-            <h4>Scalable Architecture</h4>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">Future-ready digital systems</p>
-          </div>
-          <div class="why-item reveal fade-right reveal-delay-2">
-            <span class="check-icon">✓</span>
-            <h4>Performance-Driven</h4>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">ROI-focused execution</p>
-          </div>
-          <div class="why-item reveal fade-right reveal-delay-3">
-            <span class="check-icon">✓</span>
-            <h4>Security &amp; Reliability</h4>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">Enterprise-grade quality</p>
-          </div>
-        </div>
-        <div class="why-image reveal fade-left">
-          <img src="assets/collaboration.png" alt="AI-powered digital collaboration">
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 3rem;">
-        <p class="highlight-text" style="font-size: 1.2rem; font-weight: 600; color: var(--text-highlight);">We align
-          technology with business goals to deliver sustainable digital growth.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Coming Soon / Update Notice -->
-  <section class="methodology">
-    <div class="container">
-      <h2 class="section-title">🚧 Website Update in Progress</h2>
-      <p class="section-subtitle">We are currently upgrading our website to deliver a more advanced, intelligent, and
-        user-friendly experience.</p>
-
-      <div class="steps-container">
-        <div class="step-card">
-          <div class="step-number">✦</div>
-          <h4>Enhanced AI Capabilities</h4>
-          <p style="color: var(--text-muted);">Next-generation AI integrations and intelligent features across the
-            platform.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">✦</div>
-          <h4>Improved User Experience</h4>
-          <p style="color: var(--text-muted);">A smoother, faster, and more intuitive digital experience for every
-            visitor.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">✦</div>
-          <h4>Advanced Service Showcases</h4>
-          <p style="color: var(--text-muted);">Comprehensive case studies and live demonstrations of our AI-powered
-            solutions.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">✦</div>
-          <h4>Launching Soon</h4>
-          <p style="color: var(--text-muted);">We appreciate your patience while we build something better. Stay
-            tuned.</p>
-        </div>
-      </div>
-
-      <!-- Industry Readiness Training Addition -->
-      <div class="industry-readiness">
-        <h3>What's Coming Next</h3>
-        <div class="industry-list">
-          <div class="industry-item">
-            <span class="icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <circle cx="12" cy="12" r="6" />
-                <circle cx="12" cy="12" r="2" />
-              </svg>
-            </span>
-            <span>Client Success Stories</span>
-          </div>
-          <div class="industry-item">
-            <span class="icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                <line x1="9" y1="10" x2="15" y2="10" />
-                <line x1="12" y1="7" x2="12" y2="13" />
-              </svg>
-            </span>
-            <span>Streamlined Communication Channels</span>
-          </div>
-          <div class="industry-item">
-            <span class="icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-            </span>
-            <span>Partner &amp; Collaboration Portal</span>
-          </div>
-          <div class="industry-item">
-            <span class="icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 3.44-3.04A2.5 2.5 0 0 1 9.5 2Z" />
-                <path
-                  d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-3.44-3.04A2.5 2.5 0 0 0 14.5 2Z" />
-              </svg>
-            </span>
-            <span>AI-Powered Project Dashboard</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact & Footer -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2 class="section-title focus-text">Get In Touch</h2>
-      <div class="contact-layout">
-        <div class="contact-info">
-          <div class="contact-info-item">
-            <h4>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="contact-svg">
-                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              Visit Us
-            </h4>
-            <p style="color: var(--text-muted);">Acadeno Technologies Pvt Ltd (CSEZ Unit)<br>Unit No: 19, UB Floor,
-              Sahya Business Centre<br>Government Cyber Park, Nellikkode PO<br>Kozhikode, Kerala – 673016</p>
-          </div>
-          <div class="contact-info-item">
-            <h4>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="contact-svg">
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-              </svg>
-              Call / WhatsApp
-            </h4>
-            <p style="color: var(--text-muted);">+91 94479 33266</p>
-          </div>
-          <div class="contact-info-item">
-            <h4>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="contact-svg">
-                <rect width="20" height="16" x="2" y="4" rx="2" />
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-              </svg>
-              Email Us
-            </h4>
-            <p style="color: var(--text-muted);">info@acadeno.com</p>
-          </div>
-          <div class="contact-info-item">
-            <h4>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="contact-svg">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-              Office Hours
-            </h4>
-            <p style="color: var(--text-muted);">Mon – Sat: 9:00 AM – 6:00 PM<br>Sun: By Appointment</p>
-          </div>
-        </div>
-
-        <div class="contact-form">
-          <form id="contact-form">
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" name="name" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-              <label>Phone Number</label>
-              <input type="tel" name="phone" placeholder="Your Mobile Number" required>
-            </div>
-            <div class="form-group">
-              <label>Service Interested In</label>
-              <input type="text" name="course" placeholder="e.g. AI Solution, Web Development" required>
-            </div>
-            <div class="form-group">
-              <label>Message</label>
-              <textarea name="message" rows="4" placeholder="Tell us about your project or inquiry..."></textarea>
-            </div>
-            <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">Send Message</button>
-          </form>
-          <div id="form-status" style="margin-top: 1rem; text-align: center; display: none;"></div>
-        </div>
-      </div>
-
-      <!-- Map Section (hidden) -->
-      <div class="contact-map" style="display: none;"></div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Acadeno. All Rights Reserved.</p>
-      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.6;">www.acadeno.com</p>
-    </div>
-  </footer>
-
-  <!-- WhatsApp Widget -->
-  <a href="https://wa.me/919447933266?text=Hi%20Acadeno,%20I'm%20interested%20in..." class="whatsapp-float"
-    target="_blank" title="Chat with us on WhatsApp">
-    <img src="assets/whatsapp.svg" alt="WhatsApp">
-  </a>
-
-  <script src="script.js"></script>
+        // Handle Responsive Stagger Grid
+        const staggerGroups = document.querySelectorAll('.stagger-group');
+        staggerGroups.forEach(group => {
+            const items = group.querySelectorAll('.stagger-item');
+            items.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.05}s`;
+            });
+        });
+        
+        // Initial setup for the magnetic rect tracking
+        if(logoTab) {
+            // Wait slightly for layout to settle then grab bounding client rect
+            setTimeout(() => {
+                 window.dispatchEvent(new Event('resize'));
+            }, 500);
+        }
+    });
+</script>
 </body>
-
 </html>
