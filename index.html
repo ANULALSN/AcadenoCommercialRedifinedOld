@@ -317,37 +317,113 @@
         animation: borderGlow 1.5s ease-out forwards;
       }
       
-      /* --- CAPABILITIES PROGRESSIVE DISCLOSURE --- */
-      .capabilities-wrapper {
+      /* --- INFINITE SCROLLER --- */
+      .capabilities-scroller {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        overflow: hidden;
+        padding: 60px 0;
+      }
+      .capabilities-track {
+        display: flex;
+        width: max-content;
+        animation: scroll-left 60s linear infinite;
+        gap: 32px;
+        padding: 20px 40px;
+      }
+      .capabilities-track:hover {
+        animation-play-state: paused;
+      }
+      @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .capability-card {
+        flex: 0 0 350px;
+        height: 240px;
+        border-radius: 32px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         position: relative;
         overflow: hidden;
-        max-height: 850px;
-        transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        padding-bottom: 24px;
-        will-change: max-height;
+        cursor: pointer;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        border: 1px solid rgba(0,0,0,0.03);
+        box-shadow: 0 4px 30px rgba(0,0,0,0.02);
       }
-      @media (min-width: 640px) {
-        .capabilities-wrapper { max-height: 850px; }
+      .capability-card:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.1);
       }
-      @media (min-width: 1024px) {
-        .capabilities-wrapper { max-height: 520px; }
+      .capability-card h3 {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-weight: 700 !important;
+        font-size: 1.25rem !important;
+        color: #0f172a;
+        line-height: 1.3;
+        margin: 0;
+        z-index: 2;
+        transition: transform 0.4s ease;
       }
-      .capabilities-wrapper.is-expanded {
-        max-height: 4500px !important;
+      .capability-card .material-symbols-outlined {
+        font-size: 48px;
+        color: #00286d;
+        opacity: 0.9;
+        margin-bottom: 24px;
+        z-index: 2;
+        transition: transform 0.4s ease;
       }
-      .capabilities-fade {
+      .capability-overlay {
         position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 120px;
-        background: linear-gradient(to bottom, transparent, #f8f9fd);
-        pointer-events: none;
-        transition: opacity 0.4s ease;
-        z-index: 10;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.98);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        transform: translateY(100%);
+        transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 5;
       }
-      .capabilities-wrapper.is-expanded .capabilities-fade {
-        opacity: 0;
+      .capability-card:hover .capability-overlay {
+        transform: translateY(0);
+      }
+      .capability-overlay p {
+        font-size: 0.95rem !important;
+        color: #334155 !important;
+        line-height: 1.7 !important;
+        font-weight: 500 !important;
+        text-align: center;
+      }
+      
+      @media (max-width: 768px) {
+        .capabilities-scroller {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .capabilities-track {
+          animation: none;
+          gap: 20px;
+          padding: 20px 24px;
+        }
+        .capability-card {
+          flex: 0 0 280px;
+          height: 220px;
+          padding: 30px;
+        }
+      }
+
+      #capabilities {
+        transition: background 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        background-color: #f8f9fd;
+        overflow-x: hidden;
       }
     </style>
     <style>
@@ -651,130 +727,122 @@
 <h2 class="reveal-hidden reveal-slide-left font-headline text-3xl font-bold text-on-surface">What we engineer.</h2>
 <p class="reveal-hidden reveal-fade-up font-light text-on-surface-variant mt-2" style="transition-delay: 0.1s;">Sixteen service areas. One consistent standard of delivery.</p>
 </div>
-<div class="capabilities-wrapper">
-<div class="stagger-group grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-<!-- 16 Capability Cards -->
-<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="integration_instructions">integration_instructions</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">AI Integration into Existing Software</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">We embed AI directly into your current platforms — no migration, no replacement, no operational disruption.</p>
-</div>
-</div>
-<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="model_training">model_training</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">Custom AI Solutions &amp; Models</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Production-ready machine learning, computer vision, NLP, and predictive analytics — built around your specific business requirements.</p>
-</div>
-</div>
-<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="smart_toy">smart_toy</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">AI Agents &amp; Intelligent Automation</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Autonomous LLM agents, multi-agent orchestration, and robotic process automation engineered for complex, high-volume enterprise workflows.</p>
-</div>
-</div>
-<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="search_insights">search_insights</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">RAG Knowledge Systems</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Private knowledge pipelines, semantic search, and enterprise document intelligence — keeping your data secure and your teams informed instantly.</p>
-</div>
-</div>
-<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="web">web</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">Web Application Development</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Scalable, high-performance web applications built on modern full-stack frameworks, designed for enterprise-grade reliability and user experience.</p>
-</div>
-</div>
-<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="phone_iphone">phone_iphone</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">Mobile Application Development</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Cross-platform and native iOS/Android applications engineered for performance, scale, and seamless backend integration.</p>
-</div>
-</div>
-<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="api">api</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">API &amp; System Integration</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">End-to-end interoperability across platforms, tools, and enterprise systems — through robust API architecture and custom middleware solutions.</p>
-</div>
-</div>
-<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="analytics">analytics</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">Data Analytics &amp; Business Intelligence</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">From raw data pipelines to executive dashboards — we turn your operational data into clear, actionable strategic intelligence.</p>
-</div>
-</div>
-<div class="reveal-hidden reveal-fade-up stagger-item relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="cloud">cloud</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">Cloud &amp; DevOps</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Cloud-native architecture, CI/CD automation, containerisation, and infrastructure management across AWS, Google Cloud, and Microsoft Azure.</p>
-</div>
-</div>
-<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="gpp_good">gpp_good</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">Cybersecurity</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Security assessments, vulnerability management, compliance frameworks, and hardened infrastructure — protecting your systems and your clients.</p>
-</div>
-</div>
-<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="router">router</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">IoT Solutions</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Sensor integration, edge computing, and cloud-connected device ecosystems for industrial and commercial environments.</p>
-</div>
-</div>
-<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="memory">memory</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">Embedded Systems</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Microcontroller and edge device solutions engineered for real-time, mission-critical environments.</p>
-</div>
-</div>
-<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="precision_manufacturing">precision_manufacturing</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">Robotics &amp; Automation</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Industrial and commercial robotics solutions that reduce operational overhead and bring measurable precision to physical workflows.</p>
-</div>
-</div>
-<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="location_city">location_city</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">Smart City Solutions</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">IoT and AI-driven urban infrastructure systems — purpose-built for efficient, scalable city and government operations.</p>
-</div>
-</div>
-<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="campaign">campaign</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">Digital Marketing</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">SEO, SEM, content strategy, and campaign analytics with clear performance metrics and accountable outcomes.</p>
-</div>
-</div>
-<div class="relative p-6 bg-surface-container-lowest rounded-xl ghost-border transition-all duration-300 card-hover group h-full flex flex-col gap-4">
-<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="psychology">psychology</span>
-<div>
-<h3 class="text-sm font-bold text-on-surface mb-2">AI Consulting &amp; Training</h3>
-<p class="text-xs text-on-surface-variant leading-relaxed">Strategic AI advisory and structured training programmes — helping organisations adopt AI with confidence and clarity.</p>
-</div>
-</div>
-</div>
-<div class="capabilities-fade"></div>
-</div>
-<!-- See More Button -->
-<div class="flex justify-center mt-6">
-    <button id="capabilities-toggle-btn" aria-label="Toggle full list of 16 engineering capabilities" class="px-8 py-3 bg-transparent border border-outline-variant text-on-surface hover:text-primary hover:border-primary font-bold rounded-xl text-sm transition-all active:scale-95 flex items-center gap-2">
-        <span>Explore More Engineering Services</span>
-        <span class="material-symbols-outlined text-lg" data-icon="south">south</span>
-    </button>
+<div class="capabilities-scroller">
+    <div class="capabilities-track" id="cap-track">
+        <!-- 16 Capability Cards base set -->
+        <div class="capability-card" data-color="#e0f2fe" style="background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)">
+            <span class="material-symbols-outlined">integration_instructions</span>
+            <h3>AI Integration into Existing Software</h3>
+            <div class="capability-overlay">
+                <p>We embed AI directly into your current platforms — no migration, no replacement, no operational disruption.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#f3e8ff" style="background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%)">
+            <span class="material-symbols-outlined">model_training</span>
+            <h3>Custom AI Solutions & Models</h3>
+            <div class="capability-overlay">
+                <p>Production-ready machine learning, computer vision, NLP, and predictive analytics — built around your specific business requirements.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#fee2e2" style="background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%)">
+            <span class="material-symbols-outlined">smart_toy</span>
+            <h3>AI Agents & Intelligent Automation</h3>
+            <div class="capability-overlay">
+                <p>Autonomous LLM agents, multi-agent orchestration, and robotic process automation engineered for complex workflows.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#ffedd5" style="background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%)">
+            <span class="material-symbols-outlined">search_insights</span>
+            <h3>RAG Knowledge Systems</h3>
+            <div class="capability-overlay">
+                <p>Private knowledge pipelines, semantic search, and enterprise document intelligence — keeping your data secure.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#fef9c3" style="background: linear-gradient(135deg, #fef9c3 0%, #fef08a 100%)">
+            <span class="material-symbols-outlined">web</span>
+            <h3>Web Application Development</h3>
+            <div class="capability-overlay">
+                <p>Scalable, high-performance web applications built on modern full-stack frameworks, designed for reliability.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#f0fdf4" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)">
+            <span class="material-symbols-outlined">phone_iphone</span>
+            <h3>Mobile Application Development</h3>
+            <div class="capability-overlay">
+                <p>Cross-platform and native iOS/Android applications engineered for performance, scale, and seamless backend integration.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#ecfeff" style="background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%)">
+            <span class="material-symbols-outlined">api</span>
+            <h3>API & System Integration</h3>
+            <div class="capability-overlay">
+                <p>End-to-end interoperability across platforms through robust API architecture and custom middleware solutions.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#f5f3ff" style="background: linear-gradient(135deg, #f5f3ff 0%, #ddd6fe 100%)">
+            <span class="material-symbols-outlined">analytics</span>
+            <h3>Data Analytics & Business Intelligence</h3>
+            <div class="capability-overlay">
+                <p>From raw data pipelines to executive dashboards — we turn your operational data into clear, actionable intelligence.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#faf5ff" style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)">
+            <span class="material-symbols-outlined">cloud</span>
+            <h3>Cloud & DevOps</h3>
+            <div class="capability-overlay">
+                <p>Cloud-native architecture, CI/CD automation, and infrastructure management across AWS, Google Cloud, and Azure.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#fff1f2" style="background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%)">
+            <span class="material-symbols-outlined">gpp_good</span>
+            <h3>Cybersecurity</h3>
+            <div class="capability-overlay">
+                <p>Security assessments, vulnerability management, and hardened infrastructure — protecting your systems and clients.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#f0f9ff" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)">
+            <span class="material-symbols-outlined">router</span>
+            <h3>IoT Solutions</h3>
+            <div class="capability-overlay">
+                <p>Sensor integration, edge computing, and cloud-connected device ecosystems for industrial environments.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#fdf4ff" style="background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%)">
+            <span class="material-symbols-outlined">memory</span>
+            <h3>Embedded Systems</h3>
+            <div class="capability-overlay">
+                <p>Microcontroller and edge device solutions engineered for real-time, mission-critical environments.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#fff7ed" style="background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%)">
+            <span class="material-symbols-outlined">precision_manufacturing</span>
+            <h3>Robotics & Automation</h3>
+            <div class="capability-overlay">
+                <p>Industrial robotics solutions that reduce operational overhead and bring precision to physical workflows.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#f0fdfa" style="background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%)">
+            <span class="material-symbols-outlined">location_city</span>
+            <h3>Smart City Solutions</h3>
+            <div class="capability-overlay">
+                <p>IoT and AI-driven urban infrastructure systems — purpose-built for efficient, scalable city operations.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#fefce8" style="background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%)">
+            <span class="material-symbols-outlined">campaign</span>
+            <h3>Digital Marketing</h3>
+            <div class="capability-overlay">
+                <p>SEO, SEM, content strategy, and campaign analytics with clear performance metrics and accountable outcomes.</p>
+            </div>
+        </div>
+        <div class="capability-card" data-color="#eff6ff" style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)">
+            <span class="material-symbols-outlined">psychology</span>
+            <h3>AI Consulting & Training</h3>
+            <div class="capability-overlay">
+                <p>Strategic AI advisory and structured training programmes — helping organisations adopt AI with confidence.</p>
+            </div>
+        </div>
+    </div>
 </div>
 </section>
 <!-- Section 7: Tech Stack -->
@@ -1262,16 +1330,60 @@ Technically superior. Structurally sound.
         drawerLinks.forEach(link => link.addEventListener('click', toggleMenu));
     }
 
-    /* Capabilities Progressive Disclosure Logic */
-    const capWrapper = document.querySelector('.capabilities-wrapper');
-    const capBtn = document.getElementById('capabilities-toggle-btn');
-    if (capWrapper && capBtn) {
-        capBtn.addEventListener('click', () => {
-            const isExpanded = capWrapper.classList.toggle('is-expanded');
-            capBtn.innerHTML = isExpanded 
-                ? '<span>Show Less</span><span class="material-symbols-outlined text-lg" data-icon="north">north</span>'
-                : '<span>Explore More Engineering Services</span><span class="material-symbols-outlined text-lg" data-icon="south">south</span>';
+    /* --- INFINITE SCROLLER LOGIC --- */
+    const capTrack = document.getElementById('cap-track');
+    if (capTrack) {
+        // Clone cards for seamless infinite scroll
+        const originalCards = Array.from(capTrack.children);
+        originalCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            capTrack.appendChild(clone);
         });
+
+        // Dynamic Background Detection
+        const capSection = document.getElementById('capabilities');
+        const scroller = document.querySelector('.capabilities-scroller');
+        
+        let lastColor = '';
+        
+        const updateActiveGradient = () => {
+            const scrollerRect = scroller.getBoundingClientRect();
+            // Don't run if section is not visible
+            if (scrollerRect.bottom < 0 || scrollerRect.top > window.innerHeight) {
+                requestAnimationFrame(updateActiveGradient);
+                return;
+            }
+
+            const centerX = window.innerWidth / 2;
+            
+            let closestCard = null;
+            let minDistance = Infinity;
+            
+            const allCards = capTrack.querySelectorAll('.capability-card');
+            allCards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const cardCenterX = rect.left + rect.width / 2;
+                const distance = Math.abs(centerX - cardCenterX);
+                
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestCard = card;
+                }
+            });
+            
+            if (closestCard) {
+                const color = closestCard.getAttribute('data-color');
+                if (color && color !== lastColor) {
+                    // Apply a very subtle version of the card's color to the section background
+                    capSection.style.backgroundColor = color + '15'; // ~8% opacity hex
+                    lastColor = color;
+                }
+            }
+            
+            requestAnimationFrame(updateActiveGradient);
+        };
+        
+        requestAnimationFrame(updateActiveGradient);
     }
 
     /* URL Hash Cleanup & Smooth Navigation */
