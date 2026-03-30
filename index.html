@@ -1075,6 +1075,98 @@
             padding: 0;
         }
       }
+
+      /* --- WHY ACADENO (SECTION 8) UPGRADE --- */
+      #why-acadeno {
+        position: relative;
+        overflow: hidden;
+      }
+      .circuit-grid {
+        position: absolute;
+        inset: 0;
+        background-image: 
+          linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+        z-index: 0;
+        pointer-events: none;
+      }
+      .why-card {
+        position: relative;
+        z-index: 5;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        border: 1px solid #e2e8f0;
+        border-radius: 20px;
+        padding: 32px;
+        transition: all 0.4s cubic-bezier(0.24, 1, 0.32, 1);
+        overflow: hidden;
+      }
+      .why-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.12);
+        border-color: transparent;
+      }
+      .why-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+      .why-card:hover::before {
+        opacity: 1;
+      }
+      .outline-number {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 900;
+        font-size: 6.5rem;
+        line-height: 1;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(148, 163, 184, 0.2);
+        position: absolute;
+        top: -10px;
+        right: 16px;
+        transition: -webkit-text-stroke 0.4s ease, transform 0.4s ease;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .why-card:hover .outline-number {
+        -webkit-text-stroke: 1px rgba(59, 130, 246, 0.4);
+        transform: translateX(-10px);
+      }
+      .why-content {
+        position: relative;
+        z-index: 2;
+      }
+      .led-dot {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background-color: #3b82f6;
+        border-radius: 50%;
+        box-shadow: 0 0 8px #3b82f6;
+        animation: ledPulse 2s infinite ease-in-out;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+      @keyframes ledPulse {
+        0%, 100% { opacity: 0.4; box-shadow: 0 0 4px #3b82f6; }
+        50% { opacity: 1; box-shadow: 0 0 12px #3b82f6; }
+      }
+      .why-header-flex {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+      }
     </style>
 </head>
 <body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-primary overflow-x-hidden">
@@ -1579,40 +1671,86 @@
 </section>
 </section>
 <!-- Section 8: Why Acadeno -->
-<section id="why-acadeno" class="py-24 px-6 max-w-7xl mx-auto">
-<h2 class="font-headline text-3xl font-bold mb-12 text-on-surface">A different kind of technology partner.</h2>
-<div class="stagger-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-low rounded-2xl relative overflow-hidden group">
-<div class="absolute top-0 right-0 p-4 font-headline text-5xl font-black text-on-surface opacity-5 group-hover:opacity-10 transition-opacity">01</div>
-<h4 class="font-bold text-lg mb-4 text-on-surface">AI Integration Specialists</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed">We operate in a space very few companies address — embedding AI into software that businesses already use, regardless of who built it. This isn't a side offering. It's what we were built to do.</p>
-</div>
-<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-low rounded-2xl relative overflow-hidden group">
-<div class="absolute top-0 right-0 p-4 font-headline text-5xl font-black text-on-surface opacity-5 group-hover:opacity-10 transition-opacity">02</div>
-<h4 class="font-bold text-lg mb-4 text-on-surface">NDA First. Always.</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed">Every engagement begins with a signed NDA. Full source code ownership is transferred to you at delivery. Your intellectual property is completely protected from day one.</p>
-</div>
-<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-low rounded-2xl relative overflow-hidden group">
-<div class="absolute top-0 right-0 p-4 font-headline text-5xl font-black text-on-surface opacity-5 group-hover:opacity-10 transition-opacity">03</div>
-<h4 class="font-bold text-lg mb-4 text-on-surface">Transparent Pricing. Real Value.</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed">We don't inflate retainers or bury costs in ambiguous scope. Enterprise-grade technology at a price point that reflects honest commercial terms — every time.</p>
-</div>
-<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-low rounded-2xl relative overflow-hidden group">
-<div class="absolute top-0 right-0 p-4 font-headline text-5xl font-black text-on-surface opacity-5 group-hover:opacity-10 transition-opacity">04</div>
-<h4 class="font-bold text-lg mb-4 text-on-surface">Lean Structure. Fast Execution.</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed">No corporate red tape between your requirements and our delivery. Decisions happen at the right level, fast. We move at the speed your business actually demands.</p>
-</div>
-<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-low rounded-2xl relative overflow-hidden group">
-<div class="absolute top-0 right-0 p-4 font-headline text-5xl font-black text-on-surface opacity-5 group-hover:opacity-10 transition-opacity">05</div>
-<h4 class="font-bold text-lg mb-4 text-on-surface">SEZ-Based. Globally Competitive.</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed">Operating from Govt Cyberpark, Calicut — Kerala's premier Special Economic Zone — we combine world-class infrastructure with the pricing advantages of an SEZ-registered entity serving global markets.</p>
-</div>
-<div class="reveal-hidden reveal-scale stagger-item p-8 bg-surface-container-low rounded-2xl relative overflow-hidden group">
-<div class="absolute top-0 right-0 p-4 font-headline text-5xl font-black text-on-surface opacity-5 group-hover:opacity-10 transition-opacity">06</div>
-<h4 class="font-bold text-lg mb-4 text-on-surface">Full-Spectrum Engineering.</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed">From AI integration to embedded systems, cloud architecture to cybersecurity — you get one accountable engineering partner across your entire technology landscape, not a fragmented vendor ecosystem.</p>
-</div>
-</div>
+<section id="why-acadeno" class="py-24 px-6">
+    <div class="circuit-grid"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+        <h2 class="font-headline text-3xl font-bold mb-12 text-on-surface">A different kind of technology partner.</h2>
+        <div class="why-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-group">
+
+            <!-- Card 1 -->
+            <div class="why-card reveal-hidden reveal-fade-up stagger-item" style="transition-delay: 0.1s;">
+                <div class="outline-number">01</div>
+                <div class="why-content">
+                    <div class="why-header-flex">
+                        <span class="led-dot"></span>
+                        <h4 class="font-bold text-lg text-on-surface uppercase tracking-wide">Specialization</h4>
+                    </div>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Embedding AI into your existing software—it's what we were built to do.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="why-card reveal-hidden reveal-fade-up stagger-item" style="transition-delay: 0.2s;">
+                <div class="outline-number">02</div>
+                <div class="why-content">
+                    <div class="why-header-flex">
+                        <span class="led-dot"></span>
+                        <h4 class="font-bold text-lg text-on-surface uppercase tracking-wide">IP Security</h4>
+                    </div>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">NDA-first approach with full source code transfer at delivery.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="why-card reveal-hidden reveal-fade-up stagger-item" style="transition-delay: 0.3s;">
+                <div class="outline-number">03</div>
+                <div class="why-content">
+                    <div class="why-header-flex">
+                        <span class="led-dot"></span>
+                        <h4 class="font-bold text-lg text-on-surface uppercase tracking-wide">Pricing</h4>
+                    </div>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Honest commercial terms. Enterprise tech without the inflated retainers.</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="why-card reveal-hidden reveal-fade-up stagger-item" style="transition-delay: 0.4s;">
+                <div class="outline-number">04</div>
+                <div class="why-content">
+                    <div class="why-header-flex">
+                        <span class="led-dot"></span>
+                        <h4 class="font-bold text-lg text-on-surface uppercase tracking-wide">Execution</h4>
+                    </div>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Zero corporate red tape. We move at the speed your business demands.</p>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="why-card reveal-hidden reveal-fade-up stagger-item" style="transition-delay: 0.5s;">
+                <div class="outline-number">05</div>
+                <div class="why-content">
+                    <div class="why-header-flex">
+                        <span class="led-dot"></span>
+                        <h4 class="font-bold text-lg text-on-surface uppercase tracking-wide">Advantage</h4>
+                    </div>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">SEZ-registered entity in Govt Cyberpark, Calicut—world-class infra, global pricing.</p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="why-card reveal-hidden reveal-fade-up stagger-item" style="transition-delay: 0.6s;">
+                <div class="outline-number">06</div>
+                <div class="why-content">
+                    <div class="why-header-flex">
+                        <span class="led-dot"></span>
+                        <h4 class="font-bold text-lg text-on-surface uppercase tracking-wide">Partnership</h4>
+                    </div>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">One accountable partner for your entire technology landscape.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </section>
 <!-- Section 9: Process -->
 <!-- Section 9: Process (Animated Module) -->
